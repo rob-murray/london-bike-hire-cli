@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     barclays-bike-london-cli (0.1.0)
+      commander (~> 4.2)
       nokogiri (~> 1.6)
 
 GEM
@@ -12,6 +13,8 @@ GEM
     codeclimate-test-reporter (0.4.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
+    commander (4.2.0)
+      highline (~> 1.6.11)
     coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
@@ -31,6 +34,7 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    highline (1.6.21)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)

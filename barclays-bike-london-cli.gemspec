@@ -28,5 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls', '~> 0.7'
   spec.add_development_dependency 'codeclimate-test-reporter'
 
+  spec.add_dependency 'commander', '~> 4.2'
   spec.add_dependency 'nokogiri', '~> 1.6'
 end

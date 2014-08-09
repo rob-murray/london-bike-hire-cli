@@ -11,11 +11,14 @@
 
 ### Description
 
-What it does!
+This gem provides a command line interface to find information about London's Barclays Bike stations, it allows you to find stations by name or their ID and pull back information about the status of a station.
 
-Here's the spec for **this**:
+Here's the spec for **Barclays Bike London CLI**:
 
-* something x6
+* Find all stations
+* Find by ID
+* Find by by name
+* Display status of stations
 
 
 ### Getting started
@@ -39,12 +42,21 @@ For a list of arguments just use the `-h` switch.
 $ bbcli -h
 ````
 
-##### Feature 1
+##### Show status of a bike station by id
 
 Here is what Feature 1 does and how to use it.
 
 ```bash
-$ bbcli find_by_id
+$ bbcli find {id}
+````
+
+##### Show status of a bike station by id
+
+Here is what Feature 1 does and how to use it.
+
+```bash
+$ bbcli where {options}
+$ bbcli where name: {name}
 ````
 
 
