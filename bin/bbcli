@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'barclays-bike-london-cli'
+require 'barclays_bike_cli'
 
-BarclaysBikeCli::Application.new.run if $PROGRAM_NAME == __FILE__
+BarclaysBikeCli::Application.new.run
