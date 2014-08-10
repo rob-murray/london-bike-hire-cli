@@ -52,7 +52,7 @@ $ bbcli find {id}
 
 ##### Show status of a bike station by id
 
-Here is what Feature 1 does and how to use it.
+Here is what Feature 2 does and how to use it.
 
 ```bash
 $ bbcli where {options}

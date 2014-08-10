@@ -2,4 +2,4 @@
 
 require 'barclays-bike-london-cli'
 
-BarclaysBikeCli::Application.new.run if $0 == __FILE__
+BarclaysBikeCli::Application.new.run if $PROGRAM_NAME == __FILE__
