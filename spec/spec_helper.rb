@@ -1,5 +1,7 @@
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
+require 'coveralls'
 CodeClimate::TestReporter.start
+Coveralls.wear!
 
 require File.join(File.dirname(__FILE__), '..', '/lib/', 'barclays_bike_cli')
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
