@@ -9,11 +9,7 @@ module BarclaysBikeCli
       output.print "Feed updated: #{context.time_of_feed}\n"
 
       context.each do |station|
-        output.print ">>> Dock\n"
-        output.print "Id: #{station.id}\n"
-        output.print "Name: #{station.name}\n"
-        output.print "Docks free: #{station.docks_free}\n"
-        output.print "Docks total: #{station.docks_total}\n"
+        render_station(station)
       end
 
       output.print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
@@ -30,5 +26,12 @@ module BarclaysBikeCli
     private
 
     attr_reader :output
+
+    def render_station(station)
+      output.print ">>> Dock\n"
+      station.each_pair.each do |attr_name, attr_value|
+        output.print "#{attr_name.capitalize}: #{attr_value}\n"
+      end
+    end
   end
 end

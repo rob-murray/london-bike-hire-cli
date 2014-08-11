@@ -52,17 +52,25 @@ module BarclaysBikeCli
     #   ...
     # </stations>
 
-    def parse_station(node)
+    def parse_station(xml_node)
       station = {}
 
-      node.elements.each do |node|
+      xml_node.elements.each do |node|
         station[:id] = node.text if node.node_name.eql? 'id'
         station[:name] = node.text if node.node_name.eql? 'name'
         station[:docks_free] = node.text.to_i if node.node_name.eql? 'nbEmptyDocks'
         station[:docks_total] = node.text.to_i if node.node_name.eql? 'nbDocks'
+        station[:bikes] = node.text.to_i if node.node_name.eql? 'nbBikes'
+        station[:lat] = node.text.to_f if node.node_name.eql? 'lat'
+        station[:long] = node.text.to_f if node.node_name.eql? 'long'
+        station[:temporary] = parse_bool(node.text) if node.node_name.eql? 'temporary'
       end
 
       station
+    end
+
+    def parse_bool(value)
+      value == 'true'
     end
   end
 end
