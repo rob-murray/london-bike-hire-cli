@@ -33,7 +33,7 @@ module BarclaysBikeCli
     private
 
     def controller
-      @controller ||= Controller.new(station_repository)
+      @controller ||= Controller.new(repository: station_repository)
     end
 
     def station_repository
