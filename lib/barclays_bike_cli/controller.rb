@@ -13,10 +13,13 @@ module BarclaysBikeCli
       renderer.render_error(query: "find_by_id: #{id}", error: e)
     end
 
-    def find_by_name(name)
-      results = repository.find_by_name name
+    def where(params)
+      results = repository.find_by_name params[:name]
 
       renderer.render results
+
+    rescue StationRepository::StationNotFound => e
+      renderer.render_error(query: "find_by_id: #{id}", error: e)
     end
 
     private

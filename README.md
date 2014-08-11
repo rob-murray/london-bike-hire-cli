@@ -47,17 +47,32 @@ $ bbcli -h
 Here is what Feature 1 does and how to use it.
 
 ```bash
-$ bbcli find {id}
+$ bbcli find --id {id}
+$ bbcli find --id 439
 ````
 
-##### Show status of a bike station by id
+##### Find all bike stations by name
 
 Here is what Feature 2 does and how to use it.
 
 ```bash
-$ bbcli where {options}
-$ bbcli where name: {name}
+$ bbcli where --{attribute} {search_value}
+$ bbcli where where --name kings
 ````
+
+##### Results
+
+```bash
+$ bbcli find --id 439
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Feed updated: 2014-08-11 13:40:00
+>>> Dock
+Id: 439
+Name: Killick Street, Kings Cross
+Docks free: 20
+Docks total: 22
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+```
 
 
 ### Contributing

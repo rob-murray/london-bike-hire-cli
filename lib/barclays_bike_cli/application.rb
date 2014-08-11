@@ -10,10 +10,20 @@ module BarclaysBikeCli
       program :description, 'A command line interface to Barclays Bike API.'
 
       command :find do |c|
-        c.syntax = 'find id'
+        c.option '--id ID', Integer, 'The Bike station ID'
+        c.syntax = 'find --id {id}'
         c.description = 'Find by id'
-        c.action do |args, _options|
-          controller.find_by_id args.first
+        c.action do |_args, options|
+          controller.find_by_id options.id
+        end
+      end
+
+      command :where do |c|
+        c.option '--name NAME', String, 'The name attribute to search'
+        c.syntax = 'where options'
+        c.description = 'Search all stations.'
+        c.action do |_args, options|
+          controller.where name: options.name
         end
       end
 
