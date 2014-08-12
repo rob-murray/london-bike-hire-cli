@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    barclays-bike-london-cli (0.1.0)
+    barclays-bike-london-cli (1.0.0)
       commander (~> 4.2)
       nokogiri (~> 1.6)
 
