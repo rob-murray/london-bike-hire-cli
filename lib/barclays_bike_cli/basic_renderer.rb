@@ -32,6 +32,7 @@ module BarclaysBikeCli
       station.each_pair.each do |attr_name, attr_value|
         output.print "#{attr_name.capitalize}: #{attr_value}\n"
       end
+      output.print "Link to map: #{station.map_link}\n"
     end
   end
 end

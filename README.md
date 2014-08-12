@@ -83,6 +83,7 @@ Temporary: false
 Bikes: 4
 Docks_free: 18
 Docks_total: 22
+Link to map: https://www.google.co.uk/maps/preview/@51.5338,-0.118677,17z
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ```
 
