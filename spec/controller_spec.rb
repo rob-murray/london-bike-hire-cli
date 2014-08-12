@@ -5,6 +5,14 @@ RSpec.describe BarclaysBikeCli::Controller do
   let(:renderer) { double.as_null_object }
   subject { BarclaysBikeCli::Controller.new(repository: repository, renderer: renderer) }
 
+  describe '#all' do
+    it 'should request stations from repository' do
+      expect(repository).to receive(:all)
+
+      subject.all
+    end
+  end
+
   describe '#find_by_id' do
     it 'should request station from repository' do
       expect(repository).to receive(:find_by_id).with(1)

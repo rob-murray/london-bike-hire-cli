@@ -4,6 +4,16 @@ RSpec.describe BarclaysBikeCli::StationRepository do
   let(:datasource) { TestDatasource.new }
   subject { BarclaysBikeCli::StationRepository.new(datasource) }
 
+  describe '#all' do
+    context 'given feed_parser returns dataset' do
+      it 'should return expected number of results' do
+        results = subject.all
+
+        expect(results.size).to eq(2)
+      end
+    end
+  end
+
   describe '#find_by_id' do
     context 'given feed_parser returns dataset' do
       it 'should return expected number of results' do
@@ -84,6 +94,14 @@ RSpec.describe BarclaysBikeCli::StationRepository do
           actual_ids = result.map(&:id)
 
           expect(actual_ids).to include('283', '439', '594')
+        end
+      end
+
+      describe '#all' do
+        it 'should return expected number of results' do
+          results = subject.all
+
+          expect(results.size).to eq(747)
         end
       end
     end
