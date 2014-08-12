@@ -23,7 +23,19 @@ module BarclaysBikeCli
         c.syntax = 'where options'
         c.description = 'Search all stations.'
         c.action do |_args, options|
+          enable_paging
+
           controller.where(params: { name: options.name })
+        end
+      end
+
+      command :all do |c|
+        c.syntax = 'all'
+        c.description = 'List all stations.'
+        c.action do |args, options|
+          enable_paging
+
+          controller.all
         end
       end
 

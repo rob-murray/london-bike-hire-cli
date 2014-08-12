@@ -6,6 +6,10 @@ module BarclaysBikeCli
       @datasource = datasource
     end
 
+    def all
+      return_query_obj(stations.values)
+    end
+
     def find_by_id(station_id)
       station = stations[station_id]
 
