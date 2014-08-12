@@ -44,7 +44,7 @@ $ bbcli -h
 
 ##### Show status of a bike station by id
 
-Here is what Feature 1 does and how to use it.
+Find a Bike station by it's Tfl station ID. This will return one station.
 
 ```bash
 $ bbcli find --id {id}
@@ -53,7 +53,7 @@ $ bbcli find --id 439
 
 ##### Find all bike stations by name
 
-Here is what Feature 2 does and how to use it.
+Search all bike stations' name attribute for the search value. This will return zero or more results.
 
 ```bash
 $ bbcli where --{attribute} {search_value}
@@ -65,15 +65,18 @@ $ bbcli where where --name kings
 ```bash
 $ bbcli find --id 439
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Feed updated: 2014-08-11 13:40:00
+Feed updated: 2014-08-12 08:45:01
 >>> Dock
 Id: 439
 Name: Killick Street, Kings Cross
-Docks free: 20
-Docks total: 22
+Lat: 51.5338
+Long: -0.118677
+Temporary: false
+Bikes: 4
+Docks_free: 18
+Docks_total: 22
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ```
-
 
 ### Contributing
 
