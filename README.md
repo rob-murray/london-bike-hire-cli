@@ -42,6 +42,14 @@ For a list of arguments just use the `-h` switch.
 $ bbcli -h
 ````
 
+##### List all bike stations
+
+List all however-many-hundred bike stations there are. With pagination.
+
+```bash
+$ bbcli all
+````
+
 ##### Show status of a bike station by id
 
 Find a Bike station by it's Tfl station ID. This will return one station.

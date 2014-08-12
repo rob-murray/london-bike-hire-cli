@@ -5,6 +5,11 @@ module BarclaysBikeCli
       @renderer = renderer
     end
 
+    def all
+      results = repository.all
+      renderer.render(results)
+    end
+
     def find_by_id(id: nil)
       results = repository.find_by_id(id.to_i)
       renderer.render(results)
