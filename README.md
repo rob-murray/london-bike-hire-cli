@@ -13,6 +13,8 @@
 
 This gem provides a command line interface to find information about London's Barclays Bike stations, it allows you to find stations by name or their ID and pull back information about the status of a station.
 
+![Boris](boris_with_bike.jpg?raw=true "Boris Johnson on a bike")
+
 Here's the spec for **Barclays Bike London CLI**:
 
 * Find all stations
@@ -100,3 +102,5 @@ Link to map: https://www.google.co.uk/maps/preview/@51.5338,-0.118677,17z
 
 This project is available for use under the MIT software license.
 See LICENSE
+
+The above image is distributed by [Andrew Parsons/ i-Images](https://www.flickr.com/photos/53797600@N04/6849997220) via a Attribution-NoDerivs 2.0 Generic License.
