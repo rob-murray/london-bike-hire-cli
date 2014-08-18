@@ -7,6 +7,7 @@
 [![Coverage Status](https://coveralls.io/repos/rob-murray/barclays-bike-london-cli/badge.png)](https://coveralls.io/r/rob-murray/barclays-bike-london-cli)
 [![Dependency Status](https://gemnasium.com/rob-murray/ferver.svg)](https://gemnasium.com/rob-murray/barclays-bike-london-cli)
 [![Gem Version](https://badge.fury.io/rb/barclays-bike-london-cli.svg)](http://badge.fury.io/rb/barclays-bike-london-cli)
+[![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/barclays-bike-london-cli.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/barclays-bike-london-cli)
 
 
 ### Description
