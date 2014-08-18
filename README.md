@@ -67,7 +67,7 @@ Search all bike stations' name attribute for the search value. This will return 
 
 ```bash
 $ bbcli where --{attribute} {search_value}
-$ bbcli where where --name kings
+$ bbcli where --name kings
 ````
 
 ##### Results
