@@ -98,6 +98,20 @@ Link to map: https://www.google.co.uk/maps/preview/@51.5338,-0.118677,17z
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+#### Development
+
+Install dependancies
+
+```bash
+$ bundle install --no-deployment
+```
+
+Run test script as entry point to application
+
+```bash
+$ ruby test.rb find --id 439
+```
+
 
 ### License
 
