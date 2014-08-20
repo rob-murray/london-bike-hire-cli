@@ -32,7 +32,7 @@ module BarclaysBikeCli
       command :all do |c|
         c.syntax = 'all'
         c.description = 'List all stations.'
-        c.action do |args, options|
+        c.action do |_args, _options|
           enable_paging
 
           controller.all
