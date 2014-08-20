@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'commander', '~> 4.2'
   spec.add_dependency 'nokogiri', '~> 1.6'
+  spec.add_dependency 'kdtree', '~> 0.3'
 end
