@@ -10,6 +10,11 @@ module BarclaysBikeCli
       return_query_obj(stations.values)
     end
 
+    def all_ids(id_list)
+      results = stations.select { |id, _station|  id_list.include? id  }
+      return_query_obj(results.values)
+    end
+
     def find_by_id(station_id)
       station = stations[station_id]
 
