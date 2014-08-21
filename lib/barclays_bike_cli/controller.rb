@@ -10,7 +10,7 @@ module BarclaysBikeCli
       renderer.render(results)
     end
 
-    def find_by_id(id: nil)
+    def find_by_id(id)
       results = repository.find_by_id(id.to_i)
       renderer.render(results)
 
@@ -27,6 +27,7 @@ module BarclaysBikeCli
     end
 
     def nearest(params: {})
+      params[:post_code]
       datasource = StationAdapter.new(repository.all).to_triples
       spatial = SpatialSearch.new(datasource)
       results = spatial.nearest({ lat: 51.5309, long: -0.1215 })

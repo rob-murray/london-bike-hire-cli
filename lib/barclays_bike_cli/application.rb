@@ -14,7 +14,7 @@ module BarclaysBikeCli
         c.syntax = 'find --id {id}'
         c.description = 'Find by id. The id is the idenitifier given by TFL to each Bike Station.'
         c.action do |_args, options|
-          controller.find_by_id(id: options.id)
+          controller.find_by_id(options.id)
         end
       end
 
