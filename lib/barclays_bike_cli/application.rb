@@ -12,7 +12,7 @@ module BarclaysBikeCli
       command :find do |c|
         c.option '--id ID', Integer, 'The Bike station ID'
         c.syntax = 'find --id {id}'
-        c.description = 'Find by id'
+        c.description = 'Find by id. The id is the idenitifier given by TFL to each Bike Station.'
         c.action do |_args, options|
           controller.find_by_id(id: options.id)
         end
@@ -20,12 +20,23 @@ module BarclaysBikeCli
 
       command :where do |c|
         c.option '--name NAME', String, 'The name attribute to search'
-        c.syntax = 'where options'
-        c.description = 'Search all stations.'
+        c.syntax = 'where --name {name}'
+        c.description = 'Search all stations for name or partial.'
         c.action do |_args, options|
           enable_paging
 
           controller.where(params: { name: options.name })
+        end
+      end
+
+      command :near do |c|
+        c.option '--postcode POSTCODE', String, 'Postcode to base search around'
+        c.syntax = 'near --postcode {postcode}'
+        c.description = 'Search for the nearest 5 stations to the given postcode.'
+        c.action do |_args, options|
+          enable_paging
+
+          controller.nearest(params: { postcode: options.postcode })
         end
       end
 

@@ -26,6 +26,14 @@ module BarclaysBikeCli
       renderer.render_error(query: "where: #{params}", error: e)
     end
 
+    def nearest(params: {})
+      datasource = StationAdapter.new(repository.all).to_triples
+      spatial = SpatialSearch.new(datasource)
+      results = spatial.nearest({ lat: 51.5309, long: -0.1215 })
+
+      puts results
+    end
+
     private
 
     attr_reader :repository, :renderer
