@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe BarclaysBikeCli::StationAdapter do
   let(:datasource) { TestDatasource.new }
   let(:test_repository) { BarclaysBikeCli::StationRepository.new(datasource) }
-  subject { BarclaysBikeCli::StationAdapter.new(stations: test_repository.all) }
+  subject { BarclaysBikeCli::StationAdapter.new(test_repository.all) }
 
   describe '#to_triples' do
     context 'given datasource' do

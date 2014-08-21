@@ -17,7 +17,7 @@ RSpec.describe BarclaysBikeCli::SpatialSearch do
 
       context 'given a limit request' do
         it 'returns correct number of results' do
-          results = subject.nearest(request, limit: 1)
+          results = subject.nearest(request, 1)
 
           expect(results.size).to eq(1)
         end

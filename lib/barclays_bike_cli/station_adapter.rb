@@ -1,6 +1,6 @@
 module BarclaysBikeCli
   class StationAdapter
-    def initialize(stations:)
+    def initialize(stations)
       @stations = stations
     end
 
