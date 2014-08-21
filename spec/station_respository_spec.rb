@@ -90,10 +90,10 @@ RSpec.describe BarclaysBikeCli::StationRepository do
         end
 
         it 'should return expected result' do
-          result = subject.find_by_name('kings')
-          actual_ids = result.map(&:id)
+          results = subject.find_by_name('kings')
+          actual_ids = results.map(&:id)
 
-          expect(actual_ids).to include('283', '439', '594')
+          expect(actual_ids).to include(283, 439, 594)
         end
       end
 
