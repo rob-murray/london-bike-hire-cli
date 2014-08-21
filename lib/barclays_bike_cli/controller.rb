@@ -28,11 +28,13 @@ module BarclaysBikeCli
 
     def nearest(params: {})
       params[:post_code]
-      datasource = StationAdapter.new(repository.all).to_triples
-      spatial = SpatialSearch.new(datasource)
-      results = spatial.nearest({ lat: 51.5309, long: -0.1215 })
+      # do geocoding
 
-      puts results
+      datasource = StationAdapter.new(repository.all).to_triples
+      nearest_ids = spatial_service(datasource).nearest({ lat: 51.5309, long: -0.1215 })
+
+      results = repository.all_ids(nearest_ids)
+      renderer.render(results)
     end
 
     private
@@ -41,6 +43,10 @@ module BarclaysBikeCli
 
     def default_renderer
       BasicRenderer.new
+    end
+
+    def spatial_service(datasource)
+      SpatialSearch.new(datasource)
     end
   end
 end

@@ -58,4 +58,43 @@ RSpec.describe BarclaysBikeCli::Controller do
       end
     end
   end
+
+  describe '#nearest' do
+    let(:stations) { TestDatasource.new.fetch.values }
+    let(:spatial_search) { double.as_null_object }
+
+    context 'given a request with postcode parameter' do
+      let(:postcode) { 'N19AE' }
+      before do
+        allow(repository).to receive(:all).and_return(stations)
+        allow(repository).to receive(:all_ids).and_return(double.as_null_object)
+      end
+      it 'geocodes postcode via service'
+
+      it 'requests all stations from repository' do
+        expect(repository).to receive(:all).and_return(stations)
+
+        subject.nearest(params: { postcode: postcode })
+      end
+
+      it 'passes all stations to spatial search' do
+        expect(BarclaysBikeCli::SpatialSearch).to receive(:new).and_return(spatial_search)
+
+        subject.nearest(params: { postcode: postcode })
+      end
+
+      it 'requests nearest ids from geocoded point' do
+        expect_any_instance_of(BarclaysBikeCli::SpatialSearch).to receive(:nearest)
+
+        subject.nearest(params: { postcode: postcode })
+      end
+
+      it 'retreives stations matched by search' do
+        allow_any_instance_of(BarclaysBikeCli::SpatialSearch).to receive(:nearest).and_return([1])
+        expect(repository).to receive(:all_ids).with([1])
+
+        subject.nearest(params: { postcode: postcode })
+      end
+    end
+  end
 end
