@@ -56,7 +56,7 @@ module BarclaysBikeCli
       station = {}
 
       xml_node.elements.each do |node|
-        station[:id] = node.text if node.node_name.eql? 'id'
+        station[:id] = node.text.to_i if node.node_name.eql? 'id'
         station[:name] = node.text if node.node_name.eql? 'name'
         station[:docks_free] = node.text.to_i if node.node_name.eql? 'nbEmptyDocks'
         station[:docks_total] = node.text.to_i if node.node_name.eql? 'nbDocks'

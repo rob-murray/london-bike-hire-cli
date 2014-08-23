@@ -35,6 +35,14 @@ RSpec.describe BarclaysBikeCli::StationRepository do
           end.to raise_error
         end
       end
+
+      context 'given a request for more than one id' do
+        it 'should return expected number of results' do
+          results = subject.find_by_id(1, 2)
+
+          expect(results.size).to eq(2)
+        end
+      end
     end
   end
 
@@ -90,10 +98,10 @@ RSpec.describe BarclaysBikeCli::StationRepository do
         end
 
         it 'should return expected result' do
-          result = subject.find_by_name('kings')
-          actual_ids = result.map(&:id)
+          results = subject.find_by_name('kings')
+          actual_ids = results.map(&:id)
 
-          expect(actual_ids).to include('283', '439', '594')
+          expect(actual_ids).to include(283, 439, 594)
         end
       end
 

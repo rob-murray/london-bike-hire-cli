@@ -25,6 +25,15 @@ RSpec.describe BarclaysBikeCli::FeedParser do
       expect(results.keys).to all(be_an(Integer))
     end
 
+    it 'has integer for all Station IDs' do
+      results = subject.fetch
+      results.delete(:last_update)
+      stations = results.values
+      ids = stations.map(&:id)
+
+      expect(ids).to all(be_an(Integer))
+    end
+
     it 'has parsed date time from feed update time' do
       results = subject.fetch
       expect(results[:last_update]).to eq(Time.new(2014, 8, 10, 10, 56, 01, '+01:00'))
