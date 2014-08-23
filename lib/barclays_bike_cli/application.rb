@@ -21,7 +21,7 @@ module BarclaysBikeCli
       command :where do |c|
         c.option '--name NAME', String, 'The name attribute to search'
         c.syntax = 'where --name {name}'
-        c.description = 'Search all stations for name or partial.'
+        c.description = 'Search all stations by name, include road name or area.'
         c.action do |_args, options|
           enable_paging
 
@@ -30,13 +30,14 @@ module BarclaysBikeCli
       end
 
       command :near do |c|
-        c.option '--postcode POSTCODE', String, 'Postcode to base search around'
-        c.syntax = 'near --postcode {postcode}'
-        c.description = 'Search for the nearest 5 stations to the given postcode.'
+        option_message = 'Search term to base search around, can be a placename or postcode.'
+        c.option '--search SEARCH_TERM', String, option_message
+        c.syntax = "near --search {search_term}"
+        c.description = 'Search for the nearest stations to the given place which can be placename or postcode.'
         c.action do |_args, options|
           enable_paging
 
-          controller.nearest(params: { postcode: options.postcode })
+          controller.nearest(params: { search_term: options.search })
         end
       end
 

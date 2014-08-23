@@ -19,7 +19,7 @@ This gem provides a command line interface to find information about London's Ba
 Here's the spec for **Barclays Bike London CLI**:
 
 * Find all stations
-* Find nearest station (by Postcode)
+* Find nearest station
 * Find by ID
 * Find by by name
 * Display status of stations
@@ -56,16 +56,19 @@ $ bbcli all
 
 ##### Find the nearest bike station
 
-Find a the nearest bike station to the specified type below. This will return ten stations.
+Find a the nearest bike station to the specified type below. This will return five stations.
 
 Available types:
 
-* Postcode
+* `search` - Most search terms; such as placename, postcode
 
 ```bash
 $ bbcli near --{type} {search_value}
-$ bbcli near --postcode N19AE
+$ bbcli near --search N19AE
+$ bbcli near --search 'waterloo station'
 ````
+
+**Note:** Don't forget to wrap search term in quotes if it contains spaces.
 
 ##### Show status of a bike station by id
 
