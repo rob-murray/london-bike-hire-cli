@@ -1,8 +1,11 @@
 module BarclaysBikeCli
   class Controller
+    attr_accessor :geocoder, :spatial_service
+
     def initialize(repository: nil, renderer: default_renderer)
       @repository = repository
       @renderer = renderer
+      @geocoder = GeocodingAdapter.new
     end
 
     def all
@@ -28,15 +31,16 @@ module BarclaysBikeCli
 
     def nearest(params: {})
       # do geocoding
-      geocoding_res = GeocodingAdapter.new.geocode(params[:postcode])
+      geocoded_point = geocoder.geocode(params[:postcode])
 
-      unless geocoding_res
-        renderer.render_error(query: "nearest: #{params}", error: 'Unable to Geocode location.')
+      unless geocoded_point
+        error = 'Unable to Geocode location.'
+        renderer.render_error(query: "nearest: #{params}", error: error)
         return
       end
 
-      datasource = StationAdapter.new(repository.all).to_triples
-      nearest_ids = spatial_service(datasource).nearest(geocoding_res)
+      init_spatial_service(repository.all)
+      nearest_ids = spatial_service.nearest(geocoded_point)
 
       results = repository.all_ids(nearest_ids)
       renderer.render(results)
@@ -50,8 +54,11 @@ module BarclaysBikeCli
       BasicRenderer.new
     end
 
-    def spatial_service(datasource)
-      SpatialSearch.new(datasource)
+    def init_spatial_service(stations)
+      @spatial_service ||= begin
+        datasource = StationAdapter.new(stations).to_triples
+        SpatialSearch.new(datasource)
+      end
     end
   end
 end

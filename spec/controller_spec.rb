@@ -62,14 +62,25 @@ RSpec.describe BarclaysBikeCli::Controller do
   describe '#nearest' do
     let(:stations) { TestDatasource.new.fetch.values }
     let(:spatial_search) { double.as_null_object }
+    let(:geocoder) { double.as_null_object }
+    let(:geocoded_point) { { lat: 51.5309584, long: -0.1215387 } }
 
     context 'given a request with postcode parameter' do
       let(:postcode) { 'N19AE' }
       before do
         allow(repository).to receive(:all).and_return(stations)
         allow(repository).to receive(:all_ids).and_return(double.as_null_object)
+        allow(geocoder).to receive(:geocode).and_return(geocoded_point)
+        allow(spatial_search).to receive(:nearest).and_return([1])
+
+        subject.geocoder = geocoder
+        subject.spatial_service = spatial_search
       end
-      it 'geocodes postcode via service'
+      it 'geocodes postcode via service' do
+        expect(geocoder).to receive(:geocode).with(postcode).and_return(geocoded_point)
+
+        subject.nearest(params: { postcode: postcode })
+      end
 
       it 'requests all stations from repository' do
         expect(repository).to receive(:all).and_return(stations)
@@ -78,19 +89,19 @@ RSpec.describe BarclaysBikeCli::Controller do
       end
 
       it 'passes all stations to spatial search' do
+        subject.spatial_service = nil
         expect(BarclaysBikeCli::SpatialSearch).to receive(:new).and_return(spatial_search)
 
         subject.nearest(params: { postcode: postcode })
       end
 
       it 'requests nearest ids from geocoded point' do
-        expect_any_instance_of(BarclaysBikeCli::SpatialSearch).to receive(:nearest)
+        expect(spatial_search).to receive(:nearest).and_return([1])
 
         subject.nearest(params: { postcode: postcode })
       end
 
       it 'retreives stations matched by search' do
-        allow_any_instance_of(BarclaysBikeCli::SpatialSearch).to receive(:nearest).and_return([1])
         expect(repository).to receive(:all_ids).with([1])
 
         subject.nearest(params: { postcode: postcode })
