@@ -30,7 +30,6 @@ module BarclaysBikeCli
     end
 
     def nearest(params: {})
-      # do geocoding
       geocoded_point = geocoder.geocode(params[:postcode])
 
       unless geocoded_point

@@ -107,5 +107,16 @@ RSpec.describe BarclaysBikeCli::Controller do
         subject.nearest(params: { postcode: postcode })
       end
     end
+
+    context 'with invalid search' do
+      let(:postcode) { '!' }
+      before do
+        allow(geocoder).to receive(:geocode).and_return(nil)
+      end
+
+      it 'does not request stations from repository' do
+        expect(repository).not_to receive(:all)
+      end
+    end
   end
 end
