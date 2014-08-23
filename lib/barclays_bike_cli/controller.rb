@@ -27,11 +27,16 @@ module BarclaysBikeCli
     end
 
     def nearest(params: {})
-      params[:post_code]
       # do geocoding
+      geocoding_res = GeocodingAdapter.new.geocode(params[:postcode])
+
+      unless geocoding_res
+        renderer.render_error(query: "nearest: #{params}", error: 'Unable to Geocode location.')
+        return
+      end
 
       datasource = StationAdapter.new(repository.all).to_triples
-      nearest_ids = spatial_service(datasource).nearest({ lat: 51.5309, long: -0.1215 })
+      nearest_ids = spatial_service(datasource).nearest(geocoding_res)
 
       results = repository.all_ids(nearest_ids)
       renderer.render(results)
