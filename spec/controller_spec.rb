@@ -69,7 +69,7 @@ RSpec.describe BarclaysBikeCli::Controller do
       let(:search_term) { 'N19AE' }
       before do
         allow(repository).to receive(:all).and_return(stations)
-        allow(repository).to receive(:all_ids).and_return(double.as_null_object)
+        allow(repository).to receive(:find_by_id).and_return(double.as_null_object)
         allow(geocoder).to receive(:geocode).and_return(geocoded_point)
         allow(spatial_search).to receive(:nearest).and_return([1])
 
@@ -102,7 +102,7 @@ RSpec.describe BarclaysBikeCli::Controller do
       end
 
       it 'retreives stations matched by search' do
-        expect(repository).to receive(:all_ids).with([1])
+        expect(repository).to receive(:find_by_id).with(1)
 
         subject.nearest(params: { search_term: search_term })
       end

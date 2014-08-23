@@ -43,7 +43,7 @@ module BarclaysBikeCli
       init_spatial_service(repository.all)
       nearest_ids = spatial_service.nearest(geocoded_point)
 
-      results = repository.all_ids(nearest_ids)
+      results = repository.find_by_id(*nearest_ids)
       renderer.render(results)
     end
 

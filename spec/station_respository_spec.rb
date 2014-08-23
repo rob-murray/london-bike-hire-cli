@@ -14,30 +14,6 @@ RSpec.describe BarclaysBikeCli::StationRepository do
     end
   end
 
-  describe '#all_ids' do
-    context 'given feed_parser returns dataset' do
-      it 'should return expected number of results' do
-        results = subject.all_ids([1, 2])
-
-        expect(results.size).to eq(2)
-      end
-
-      context 'given one id request' do
-        it 'should return expected number of results' do
-          results = subject.all_ids([1])
-
-          expect(results.size).to eq(1)
-        end
-
-        it 'should return expected result' do
-          result = subject.find_by_id(1).first
-
-          expect(result.name).to eq('test-station-1')
-        end
-      end
-    end
-  end
-
   describe '#find_by_id' do
     context 'given feed_parser returns dataset' do
       it 'should return expected number of results' do
@@ -57,6 +33,14 @@ RSpec.describe BarclaysBikeCli::StationRepository do
           expect do
             subject.find_by_id(99)
           end.to raise_error
+        end
+      end
+
+      context 'given a request for more than one id' do
+        it 'should return expected number of results' do
+          results = subject.find_by_id(1, 2)
+
+          expect(results.size).to eq(2)
         end
       end
     end
