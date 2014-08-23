@@ -14,10 +14,13 @@ module BarclaysBikeCli
       end
 
       first_result_coords = results.first.coordinates
+      result(first_result_coords)
+    end
 
+    def result(coordinates)
       {
-        lat: first_result_coords[0],
-        long: first_result_coords[1]
+        lat: coordinates[0],
+        long: coordinates[1]
       }
     end
   end
