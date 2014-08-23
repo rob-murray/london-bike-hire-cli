@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=n19ae&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 23 Aug 2014 07:31:30 GMT
+      Expires:
+      - Sun, 24 Aug 2014 07:31:30 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 80:quic
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "N1 9AE",
+                       "short_name" : "N1 9AE",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "Kings Cross",
+                       "short_name" : "Kings Cross",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "London",
+                       "short_name" : "London",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "London",
+                       "short_name" : "London",
+                       "types" : [ "postal_town" ]
+                    },
+                    {
+                       "long_name" : "Greater London",
+                       "short_name" : "Gt Lon",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "United Kingdom",
+                       "short_name" : "GB",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Kings Cross, London N1 9AE, UK",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 51.5310654,
+                          "lng" : -0.1212172
+                       },
+                       "southwest" : {
+                          "lat" : 51.5308025,
+                          "lng" : -0.1218269
+                       }
+                    },
+                    "location" : {
+                       "lat" : 51.5309584,
+                       "lng" : -0.1215387
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 51.5322829302915,
+                          "lng" : -0.120173069708498
+                       },
+                       "southwest" : {
+                          "lat" : 51.5295849697085,
+                          "lng" : -0.122871030291502
+                       }
+                    }
+                 },
+                 "types" : [ "postal_code" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Sat, 23 Aug 2014 07:31:30 GMT
+recorded_with: VCR 2.9.2
