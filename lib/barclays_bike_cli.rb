@@ -10,4 +10,6 @@ require_relative 'barclays_bike_cli/station_adapter'
 require_relative 'barclays_bike_cli/station_repository'
 require_relative 'barclays_bike_cli/version'
 
-module BarclaysBikeCli; end
+module BarclaysBikeCli
+  DEFAULT_SEARCH_LIMIT = 5
+end

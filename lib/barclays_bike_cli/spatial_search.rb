@@ -9,7 +9,7 @@ module BarclaysBikeCli
     # Public: Return the IDs of the nearest n stations
     # point - a 2d point; { lat: x.x, long: x.x }
     # limit - The maximum number of results
-    def nearest(point, limit = 5)
+    def nearest(point, limit = DEFAULT_SEARCH_LIMIT)
       stations.nearestk(point[:lat], point[:long], limit)
     end
 
