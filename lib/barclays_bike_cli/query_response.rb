@@ -4,7 +4,7 @@ module BarclaysBikeCli
   class QueryResponse
     extend Forwardable
 
-    def_delegators :results, :[], :each, :map, :first, :size
+    def_delegators :results, :[], :each, :map, :first, :size, :select
 
     def initialize(last_update: Time.now, results: [])
       @last_update = last_update
