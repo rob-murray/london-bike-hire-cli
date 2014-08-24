@@ -17,7 +17,6 @@ module BarclaysBikeCli
         matched_stations = stations.values_at(*station_ids)
       end
 
-
       fail StationNotFound unless matched_stations
 
       return_query_obj(matched_stations)
@@ -47,8 +46,6 @@ module BarclaysBikeCli
         @last_update = results.delete(:last_update)
         results
       end
-
-      @stations
     end
   end
 end
