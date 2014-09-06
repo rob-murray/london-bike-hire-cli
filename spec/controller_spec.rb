@@ -66,9 +66,9 @@ RSpec.describe BarclaysBikeCli::Controller do
     let(:geocoded_point) { { lat: 51.5309584, long: -0.1215387 } }
 
     context 'given two nearest params' do
-      let(:params) {
+      let(:params) do
         { search_term: 'foo', id: 99 }
-      }
+      end
 
       it 'does not process request' do
         expect(repository).not_to receive(:all)
@@ -137,7 +137,7 @@ RSpec.describe BarclaysBikeCli::Controller do
       before do
         allow(repository).to receive(:all).and_return(stations)
         allow(repository).to receive(:find_by_id).and_return(double.as_null_object)
-        allow(spatial_search).to receive(:nearest).and_return([1,2])
+        allow(spatial_search).to receive(:nearest).and_return([1, 2])
 
         subject.geocoder = geocoder
         subject.spatial_service = spatial_search
