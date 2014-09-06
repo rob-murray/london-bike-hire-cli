@@ -30,14 +30,18 @@ module BarclaysBikeCli
       end
 
       command :near do |c|
-        option_message = 'Search term to base search around, can be a placename or postcode.'
-        c.option '--search SEARCH_TERM', String, option_message
-        c.syntax = 'near --search {search_term}'
-        c.description = 'Search for the nearest stations to the given place which can be placename or postcode.'
+        search_opt_message = 'Search term to base search around, can be a placename or postcode.'
+        id_opt_message = 'Search for stations near another station by its ID'
+        description = 'Search for the nearest stations to a point, either from a search term or bike station id.'
+
+        c.option '--search SEARCH_TERM', String, search_opt_message
+        c.option '--id ID', Integer, id_opt_message
+        c.syntax = 'near --search {search_term} --id {id}'
+        c.description = description
         c.action do |_args, options|
           enable_paging
 
-          controller.nearest(params: { search_term: options.search })
+          controller.nearest(params: { search_term: options.search, id: options.id })
         end
       end
 

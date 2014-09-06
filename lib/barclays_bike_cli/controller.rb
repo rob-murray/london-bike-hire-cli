@@ -30,8 +30,25 @@ module BarclaysBikeCli
     end
 
     def nearest(params: {})
+      unless params[:search_term].nil? ^ params[:id].nil?
+        error = 'Please use either `search_term` or `id` not both.'
+        renderer.render_error(query: "nearest: #{params}", error: error)
+        return
+      end
+
       if search_term = params[:search_term]
         geocoded_point = geocoder.geocode(search_term)
+      end
+
+      if search_term = params[:id]
+        begin
+          stations = repository.find_by_id(search_term.to_i)
+        rescue StationRepository::StationNotFound => e
+          renderer.render_error(query: "where: #{params}", error: e)
+          return
+        end
+
+        geocoded_point = stations.first.position
       end
 
       unless geocoded_point
@@ -55,9 +72,9 @@ module BarclaysBikeCli
       BasicRenderer.new
     end
 
-    def init_spatial_service(stations)
+    def init_spatial_service(all_stations)
       @spatial_service ||= begin
-        datasource = StationAdapter.new(stations).to_triples
+        datasource = StationAdapter.new(all_stations).to_triples
         SpatialSearch.new(datasource)
       end
     end

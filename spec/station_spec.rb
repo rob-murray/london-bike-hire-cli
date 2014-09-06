@@ -11,4 +11,18 @@ RSpec.describe BarclaysBikeCli::Station do
       expect(subject.map_link).to eq('https://www.google.co.uk/maps/preview/@51.53005939,-0.120973687,17z')
     end
   end
+
+  describe '#position' do
+    it 'returns a hash' do
+      expect(subject.position).to be_instance_of(Hash)
+    end
+
+    it 'contains latitude value' do
+      expect(subject.position[:lat]).to eq(params[:lat])
+    end
+
+    it 'contains longitude value' do
+      expect(subject.position[:long]).to eq(params[:long])
+    end
+  end
 end
