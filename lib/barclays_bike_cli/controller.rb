@@ -30,7 +30,7 @@ module BarclaysBikeCli
     end
 
     def nearest(params: {})
-      unless (params[:search_term].nil? ^ params[:id].nil?)
+      unless params[:search_term].nil? ^ params[:id].nil?
         error = 'Please use either `search_term` or `id` not both.'
         renderer.render_error(query: "nearest: #{params}", error: error)
         return
