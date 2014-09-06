@@ -61,12 +61,18 @@ Find a the nearest bike station to the specified type below. This will return fi
 Available types:
 
 * `search` - Most search terms; such as placename, postcode
+* `id` - An ID of another bike station
 
 ```bash
 $ bbcli near --{type} {search_value}
+
+# Near by search term
 $ bbcli near --search N19AE
 $ bbcli near --search 'waterloo station'
-````
+
+# Near another bike station id
+$ bbcli near --id 123
+```
 
 **Note:** Don't forget to wrap search term in quotes if it contains spaces.
 
