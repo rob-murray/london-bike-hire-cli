@@ -35,7 +35,7 @@ module BarclaysBikeCli
         description = 'Search for the nearest stations to a point, either from a search term or bike station id.'
 
         c.option '--search SEARCH_TERM', String, search_opt_message
-        c.option '--id ID', Integer, search_opt_message
+        c.option '--id ID', Integer, id_opt_message
         c.syntax = 'near --search {search_term} --id {id}'
         c.description = description
         c.action do |_args, options|
