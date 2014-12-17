@@ -1,5 +1,7 @@
 ## Barclays Bike London CLI
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/barclays-bike-london-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 #### A simple command line interface to London's Barclays Bike API.
 
 [![Build Status](https://travis-ci.org/rob-murray/barclays-bike-london-cli.svg?branch=master)](https://travis-ci.org/rob-murray/barclays-bike-london-cli)
