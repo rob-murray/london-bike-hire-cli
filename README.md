@@ -1,7 +1,5 @@
 ## Barclays Bike London CLI
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/barclays-bike-london-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 #### A simple command line interface to London's Barclays Bike API.
 
 [![Build Status](https://travis-ci.org/rob-murray/barclays-bike-london-cli.svg?branch=master)](https://travis-ci.org/rob-murray/barclays-bike-london-cli)
@@ -10,6 +8,7 @@
 [![Dependency Status](https://gemnasium.com/rob-murray/ferver.svg)](https://gemnasium.com/rob-murray/barclays-bike-london-cli)
 [![Gem Version](https://badge.fury.io/rb/barclays-bike-london-cli.svg)](http://badge.fury.io/rb/barclays-bike-london-cli)
 [![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/barclays-bike-london-cli.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/barclays-bike-london-cli)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/barclays-bike-london-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ### Description
