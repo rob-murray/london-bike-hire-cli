@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q(Find information about London's Bike Hire stations from command line interface.)
   spec.homepage      = 'https://github.com/rob-murray/london-bike-hire-cli'
   spec.license       = 'MIT'
+  spec.required_ruby_version = '>= 2.0.0'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
