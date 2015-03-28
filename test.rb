@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler'
 Bundler.setup
-require 'barclays_bike_cli'
+require 'london_bike_hire_cli'
 
-BarclaysBikeCli::Application.new.run
+LondonBikeHireCli::Application.new.run
