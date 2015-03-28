@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'london-bike-hire-cli'
+require 'london_bike_hire_cli'
 
 LondonBikeHireCli::Application.new.run
