@@ -8,12 +8,11 @@
 [![Dependency Status](https://gemnasium.com/rob-murray/ferver.svg)](https://gemnasium.com/rob-murray/london-bike-hire-cli)
 [![Gem Version](https://badge.fury.io/rb/london-bike-hire-cli.svg)](http://badge.fury.io/rb/london-bike-hire-cli)
 [![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/london-bike-hire-cli.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/london-bike-hire-cli)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/london-bike-hire-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ### Description
 
-This gem provides a command line interface to find information about London's Bike Hire stations, it allows you to find stations by name or their ID and pull back information about the status of a station.
+This gem provides a command line interface to find information about London's Bike Hire stations, it allows you to find stations by name or their ID and retrieve information about the status of a station.
 
 ![Boris](boris-on-a-bike_med.jpg?raw=true "Boris Johnson on a bike")
 
@@ -37,7 +36,7 @@ $ gem install london-bike-hire-cli
 
 ### Usage
 
-You can run **london-bike-hire-cli** from the command line as below...
+You can run **london-bike-hire-cli** from the command line with just the `lbh` command.
 
 ##### Command line help
 
