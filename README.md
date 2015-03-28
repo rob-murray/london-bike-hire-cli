@@ -44,7 +44,7 @@ You can run **london-bike-hire-cli** from the command line as below...
 For a list of arguments just use the `-h` switch.
 
 ```bash
-$ bbcli -h
+$ lbh -h
 ````
 
 ##### List all bike stations
@@ -52,7 +52,7 @@ $ bbcli -h
 List all however-many-hundred bike stations there are. With pagination.
 
 ```bash
-$ bbcli all
+$ lbh all
 ````
 
 ##### Find the nearest bike station
@@ -65,14 +65,14 @@ Available types:
 * `id` - An ID of another bike station
 
 ```bash
-$ bbcli near --{type} {search_value}
+$ lbh near --{type} {search_value}
 
 # Near by search term
-$ bbcli near --search N19AE
-$ bbcli near --search 'waterloo station'
+$ lbh near --search N19AE
+$ lbh near --search 'waterloo station'
 
 # Near another bike station id
-$ bbcli near --id 123
+$ lbh near --id 123
 ```
 
 **Note:** Don't forget to wrap search term in quotes if it contains spaces.
@@ -82,8 +82,8 @@ $ bbcli near --id 123
 Find a Bike station by it's Tfl station ID. This will return one station.
 
 ```bash
-$ bbcli find --id {id}
-$ bbcli find --id 439
+$ lbh find --id {id}
+$ lbh find --id 439
 ````
 
 ##### Find all bike stations by name
@@ -91,14 +91,14 @@ $ bbcli find --id 439
 Search all bike stations' name attribute for the search value. This will return zero or more results.
 
 ```bash
-$ bbcli where --{attribute} {search_value}
-$ bbcli where --name kings
+$ lbh where --{attribute} {search_value}
+$ lbh where --name kings
 ````
 
 ##### Results
 
 ```bash
-$ bbcli find --id 439
+$ lbh find --id 439
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Feed updated: 2014-08-12 08:45:01
 >>> Dock
