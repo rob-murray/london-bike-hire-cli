@@ -1,4 +1,4 @@
-module BarclaysBikeCli
+module LondonBikeHireCli
   class Controller
     attr_accessor :geocoder, :spatial_service
 

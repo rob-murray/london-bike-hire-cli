@@ -1,6 +1,6 @@
 require 'forwardable'
 
-module BarclaysBikeCli
+module LondonBikeHireCli
   class QueryResponse
     extend Forwardable
 

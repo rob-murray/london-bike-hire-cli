@@ -1,6 +1,6 @@
 require 'ostruct'
 
-module BarclaysBikeCli
+module LondonBikeHireCli
   class Station < OpenStruct
     def map_link
       "https://www.google.co.uk/maps/preview/@#{lat},#{long},17z"

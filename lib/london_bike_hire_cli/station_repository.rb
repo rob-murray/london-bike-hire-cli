@@ -1,4 +1,4 @@
-module BarclaysBikeCli
+module LondonBikeHireCli
   class StationRepository
     class StationNotFound < StandardError; end
 

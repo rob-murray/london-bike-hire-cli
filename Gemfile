@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in barclays-bike-london-cli.gemspec
+# Specify your gem's dependencies in london-bike-hire-cli.gemspec
 gemspec

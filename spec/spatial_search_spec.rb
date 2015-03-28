@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe BarclaysBikeCli::SpatialSearch do
+RSpec.describe LondonBikeHireCli::SpatialSearch do
   let(:point_1) { [51.53005939, -0.120973687, 1] }
   let(:point_2) { [51.50810309, -0.12602103, 2] }
   let(:datasource) { [point_1, point_2] }
-  subject { BarclaysBikeCli::SpatialSearch.new(datasource) }
+  subject { described_class.new(datasource) }
 
   describe '#nearest' do
     context 'with datasource' do

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe BarclaysBikeCli::StationRepository do
+RSpec.describe LondonBikeHireCli::StationRepository do
   let(:datasource) { TestDatasource.new }
-  subject { BarclaysBikeCli::StationRepository.new(datasource) }
+  subject { described_class.new(datasource) }
 
   describe '#all' do
     context 'given feed_parser returns dataset' do
@@ -74,7 +74,7 @@ RSpec.describe BarclaysBikeCli::StationRepository do
     end
 
     describe 'integration tests', vcr: { cassette_name: 'feed_xml' } do
-      subject { BarclaysBikeCli::StationRepository.new(BarclaysBikeCli::FeedParser.new) }
+      subject { LondonBikeHireCli::StationRepository.new(LondonBikeHireCli::FeedParser.new) }
 
       describe '#find_by_id' do
         it 'should return expected number of results' do

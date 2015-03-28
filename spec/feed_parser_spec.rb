@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe BarclaysBikeCli::FeedParser do
-  subject { BarclaysBikeCli::FeedParser.new }
+RSpec.describe LondonBikeHireCli::FeedParser do
+  subject { described_class.new }
 
   describe '#fetch', vcr: { cassette_name: 'feed_xml' } do
     it 'parses expected number of Bike Stations' do

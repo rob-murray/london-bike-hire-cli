@@ -1,4 +1,4 @@
-module BarclaysBikeCli
+module LondonBikeHireCli
   class BasicRenderer
     def initialize(output = STDOUT)
       @output = output

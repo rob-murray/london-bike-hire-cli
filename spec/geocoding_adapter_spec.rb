@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe BarclaysBikeCli::GeocodingAdapter do
-  subject { BarclaysBikeCli::GeocodingAdapter.new }
+RSpec.describe LondonBikeHireCli::GeocodingAdapter do
+  subject { described_class.new }
 
   describe '#geocode with valid search term', vcr: { cassette_name: 'n19ae_geocode' } do
     let(:search_term) { 'n19ae' }

@@ -1,6 +1,6 @@
 require 'geocoder'
 
-module BarclaysBikeCli
+module LondonBikeHireCli
   class GeocodingAdapter
     def geocode(search_term)
       prepare_results Geocoder.search(search_term)

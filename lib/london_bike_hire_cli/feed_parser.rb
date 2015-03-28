@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-module BarclaysBikeCli
+module LondonBikeHireCli
   class FeedParser
     TFL_FEED_URL = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml'.freeze
 

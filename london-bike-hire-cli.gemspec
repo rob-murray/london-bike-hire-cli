@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'barclays_bike_cli/version'
+require 'london_bike_hire_cli/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'barclays-bike-london-cli'
-  spec.version       = BarclaysBikeCli::VERSION
+  spec.name          = 'london-bike-hire-cli'
+  spec.version       = LondonBikeHireCli::VERSION
   spec.authors       = ['Rob Murray']
   spec.email         = ['robmurray17@gmail.com']
-  spec.summary       = %q(A command line interface to Barclays Bike API.)
-  spec.description   = %q(Find information about London's Barclays Bike stations from command line interface.)
-  spec.homepage      = 'https://github.com/rob-murray/barclays-bike-london-cli'
+  spec.summary       = %q(A command line interface to London Bike Hire API.)
+  spec.description   = %q(Find information about London's Bike Hire stations from command line interface.)
+  spec.homepage      = 'https://github.com/rob-murray/london-bike-hire-cli'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")

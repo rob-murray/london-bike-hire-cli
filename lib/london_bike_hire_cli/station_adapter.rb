@@ -1,4 +1,4 @@
-module BarclaysBikeCli
+module LondonBikeHireCli
   class StationAdapter
     def initialize(stations)
       @stations = stations

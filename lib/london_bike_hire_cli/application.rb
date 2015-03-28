@@ -1,13 +1,13 @@
 require 'commander'
 
-module BarclaysBikeCli
+module LondonBikeHireCli
   class Application
     include Commander::Methods
 
     def run
-      program :name, 'Barclays Bike London CLI'
-      program :version, BarclaysBikeCli::VERSION
-      program :description, 'A command line interface to Barclays Bike API.'
+      program :name, 'London Bike Hire CLI'
+      program :version, LondonBikeHireCli::VERSION
+      program :description, 'A command line interface to the London Bike Hire API.'
 
       command :find do |c|
         c.option '--id ID', Integer, 'The Bike station ID'

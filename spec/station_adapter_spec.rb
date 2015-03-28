@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe BarclaysBikeCli::StationAdapter do
+RSpec.describe LondonBikeHireCli::StationAdapter do
   let(:datasource) { TestDatasource.new }
-  let(:test_repository) { BarclaysBikeCli::StationRepository.new(datasource) }
-  subject { BarclaysBikeCli::StationAdapter.new(test_repository.all) }
+  let(:test_repository) { LondonBikeHireCli::StationRepository.new(datasource) }
+  subject { described_class.new(test_repository.all) }
 
   describe '#to_triples' do
     context 'given datasource' do

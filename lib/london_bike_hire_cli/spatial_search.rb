@@ -1,6 +1,6 @@
 require 'kdtree'
 
-module BarclaysBikeCli
+module LondonBikeHireCli
   class SpatialSearch
     def initialize(datasource)
       @stations = Kdtree.new(datasource)

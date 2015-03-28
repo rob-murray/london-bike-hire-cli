@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe BarclaysBikeCli::Controller do
+RSpec.describe LondonBikeHireCli::Controller do
   let(:repository) { double }
   let(:renderer) { double.as_null_object }
-  subject { BarclaysBikeCli::Controller.new(repository: repository, renderer: renderer) }
+  subject { described_class.new(repository: repository, renderer: renderer) }
 
   describe '#all' do
     it 'should request stations from repository' do
@@ -30,7 +30,7 @@ RSpec.describe BarclaysBikeCli::Controller do
 
     context 'given repository raising not found error' do
       it 'does not raise_error' do
-        allow(repository).to receive(:find_by_id).and_raise(BarclaysBikeCli::StationRepository::StationNotFound)
+        allow(repository).to receive(:find_by_id).and_raise(LondonBikeHireCli::StationRepository::StationNotFound)
 
         expect do
           subject.find_by_id(1)
@@ -49,7 +49,7 @@ RSpec.describe BarclaysBikeCli::Controller do
 
       context 'given repository raising not found error' do
         it 'does not raise_error' do
-          allow(repository).to receive(:find_by_name).and_raise(BarclaysBikeCli::StationRepository::StationNotFound)
+          allow(repository).to receive(:find_by_name).and_raise(LondonBikeHireCli::StationRepository::StationNotFound)
 
           expect do
             subject.where(params: { name: 'kings' })
@@ -103,7 +103,7 @@ RSpec.describe BarclaysBikeCli::Controller do
 
       it 'passes all stations to spatial search' do
         subject.spatial_service = nil
-        expect(BarclaysBikeCli::SpatialSearch).to receive(:new).and_return(spatial_search)
+        expect(LondonBikeHireCli::SpatialSearch).to receive(:new).and_return(spatial_search)
 
         subject.nearest(params: { search_term: search_term })
       end
@@ -157,7 +157,7 @@ RSpec.describe BarclaysBikeCli::Controller do
 
       it 'passes all stations to spatial search' do
         subject.spatial_service = nil
-        expect(BarclaysBikeCli::SpatialSearch).to receive(:new).and_return(spatial_search)
+        expect(LondonBikeHireCli::SpatialSearch).to receive(:new).and_return(spatial_search)
 
         subject.nearest(params: { id: search_id })
       end

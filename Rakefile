@@ -13,7 +13,7 @@ task :run, [:arg1, :arg2] do |_t, _args|
   require 'rubygems'
   require 'bundler'
   Bundler.setup
-  require 'barclays_bike_cli'
+  require 'london-bike-hire-cli'
 
-  BarclaysBikeCli::Application.new.run
+  LondonBikeHireCli::Application.new.run
 end
