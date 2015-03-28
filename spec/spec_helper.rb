@@ -1,5 +1,6 @@
 require 'codeclimate-test-reporter'
 require 'coveralls'
+require 'pry-byebug'
 CodeClimate::TestReporter.start
 Coveralls.wear!
 
