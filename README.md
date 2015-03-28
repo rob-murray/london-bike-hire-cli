@@ -1,23 +1,23 @@
-## Barclays Bike London CLI
+## London Bike Hire CLI
 
-#### A simple command line interface to London's Barclays Bike API.
+#### A simple command line interface to London's Bike Hire API.
 
-[![Build Status](https://travis-ci.org/rob-murray/barclays-bike-london-cli.svg?branch=master)](https://travis-ci.org/rob-murray/barclays-bike-london-cli)
-[![Code Climate](https://codeclimate.com/github/rob-murray/barclays-bike-london-cli.png)](https://codeclimate.com/github/rob-murray/barclays-bike-london-cli)
-[![Coverage Status](https://coveralls.io/repos/rob-murray/barclays-bike-london-cli/badge.png)](https://coveralls.io/r/rob-murray/barclays-bike-london-cli)
-[![Dependency Status](https://gemnasium.com/rob-murray/ferver.svg)](https://gemnasium.com/rob-murray/barclays-bike-london-cli)
-[![Gem Version](https://badge.fury.io/rb/barclays-bike-london-cli.svg)](http://badge.fury.io/rb/barclays-bike-london-cli)
-[![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/barclays-bike-london-cli.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/barclays-bike-london-cli)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/barclays-bike-london-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/rob-murray/london-bike-hire-cli.svg?branch=master)](https://travis-ci.org/rob-murray/london-bike-hire-cli)
+[![Code Climate](https://codeclimate.com/github/rob-murray/london-bike-hire-cli.png)](https://codeclimate.com/github/rob-murray/london-bike-hire-cli)
+[![Coverage Status](https://coveralls.io/repos/rob-murray/london-bike-hire-cli/badge.png)](https://coveralls.io/r/rob-murray/london-bike-hire-cli)
+[![Dependency Status](https://gemnasium.com/rob-murray/ferver.svg)](https://gemnasium.com/rob-murray/london-bike-hire-cli)
+[![Gem Version](https://badge.fury.io/rb/london-bike-hire-cli.svg)](http://badge.fury.io/rb/london-bike-hire-cli)
+[![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/london-bike-hire-cli.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/london-bike-hire-cli)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/london-bike-hire-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ### Description
 
-This gem provides a command line interface to find information about London's Barclays Bike stations, it allows you to find stations by name or their ID and pull back information about the status of a station.
+This gem provides a command line interface to find information about London's Bike Hire stations, it allows you to find stations by name or their ID and pull back information about the status of a station.
 
-![Boris](boris_with_bike.jpg?raw=true "Boris Johnson on a bike")
+![Boris](boris-on-a-bike_med.jpg?raw=true "Boris Johnson on a bike")
 
-Here's the spec for **Barclays Bike London CLI**:
+Here's the spec for **London Bike Hire CLI**:
 
 * Find all stations
 * Find nearest station
@@ -28,16 +28,16 @@ Here's the spec for **Barclays Bike London CLI**:
 
 ### Getting started
 
-Using **barclays-bike-london-cli** could not be simpler - just install the **barclays-bike-london-cli** gem.
+Using **london-bike-hire-cli** could not be simpler - just install the **london-bike-hire-cli** gem.
 
 ```bash
-$ gem install barclays-bike-london-cli
+$ gem install london-bike-hire-cli
 ```
 
 
 ### Usage
 
-You can run **barclays-bike-london-cli** from the command line as below...
+You can run **london-bike-hire-cli** from the command line as below...
 
 ##### Command line help
 
@@ -116,7 +116,7 @@ Link to map: https://www.google.co.uk/maps/preview/@51.5338,-0.118677,17z
 
 ### Contributing
 
-1. Fork it ( https://github.com/rob-murray/barclays-bike-london-cli/fork )
+1. Fork it ( https://github.com/rob-murray/london-bike-hire-cli/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -142,4 +142,4 @@ $ ruby test.rb find --id 439
 This project is available for use under the MIT software license.
 See LICENSE
 
-The above image is distributed by [Andrew Parsons/ i-Images](https://www.flickr.com/photos/53797600@N04/6849997220) via a Attribution-NoDerivs 2.0 Generic License.
+The above image is copyright 2015 Getty Images - Getty Images for Santander.
