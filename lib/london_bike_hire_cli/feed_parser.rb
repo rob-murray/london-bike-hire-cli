@@ -14,18 +14,21 @@ module LondonBikeHireCli
 
     private
 
+    attr_reader :feed_time
+
     def parse_xml(xml_doc)
       stations = []
+      parse_feed_time(xml_doc)
 
       xml_doc.root.elements.each do |node|
         stations << parse_station(node)
       end
 
-      QueryResponse.new(last_update: parse_feed_time(xml_doc), results: stations)
+      QueryResponse.new(last_update: feed_time, results: stations)
     end
 
     def parse_feed_time(xml_doc)
-      Time.at xml_doc.root['lastUpdate'].to_i / 1000
+      @feed_time ||= Time.at xml_doc.root['lastUpdate'].to_i / 1000
     end
 
     # <stations lastUpdate="1407153481506" version="2.0">
@@ -59,6 +62,7 @@ module LondonBikeHireCli
         station[:lat] = node.text.to_f if node.node_name.eql? 'lat'
         station[:long] = node.text.to_f if node.node_name.eql? 'long'
         station[:temporary] = parse_bool(node.text) if node.node_name.eql? 'temporary'
+        station[:updated_at] = feed_time
       end
 
       Station.new(station)
