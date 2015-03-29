@@ -1,6 +1,8 @@
 module LondonBikeHireCli
   module Repository
-    class Repo
+    # Generic Repository delegating to adapter
+    #
+    module Repo
       def self.adapter
         @adapter
       end

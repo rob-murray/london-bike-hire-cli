@@ -1,6 +1,9 @@
 module LondonBikeHireCli
   module Repository
-    class InMemoryStore
+    # Adapter that stores records in memory.
+    # Supports multiple record types
+    #
+    class InMemoryStoreAdapter
       def initialize(items = [])
         @counter = 0
         @map = {}
@@ -23,6 +26,10 @@ module LondonBikeHireCli
 
       def find(klass, id)
         map_for_class(klass).fetch id
+      end
+
+      def find_by_ids(klass, *ids)
+        map_for_class(klass).values_at(*ids)
       end
 
       def all(klass)
