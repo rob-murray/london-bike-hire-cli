@@ -14,8 +14,6 @@ module LondonBikeHireCli
 
     private
 
-    attr_writer :stations
-
     def parse_xml(xml_doc)
       stations = []
 
