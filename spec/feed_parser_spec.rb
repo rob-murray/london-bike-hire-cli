@@ -33,7 +33,7 @@ RSpec.describe LondonBikeHireCli::FeedParser do
 
     it 'has parsed date time from feed update time' do
       results = subject.fetch
-      expected_time = Time.new(2014, 8, 10, 10, 56, 01)
+      expected_time = Time.new(2014, 8, 10, 10, 56, 01, '+01:00')
       expect(results.last_update).to eq(expected_time)
     end
   end

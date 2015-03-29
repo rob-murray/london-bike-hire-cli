@@ -64,7 +64,6 @@ RSpec.describe LondonBikeHireCli::Controller do
 
   describe '#nearest' do
     let(:geocoder) { double.as_null_object }
-    let(:station_1) { TestDatasource.new.fetch.values.first }
     let(:geocoded_point) { { lat: 51.5309584, long: -0.1215387 } }
 
     context 'given two nearest params' do
