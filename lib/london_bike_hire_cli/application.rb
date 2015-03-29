@@ -65,13 +65,11 @@ module LondonBikeHireCli
     end
 
     def station_repository
-      init_datasource!
-      Repository::StationRepo.new
+      Repository::StationRepo.new(build_adapter!)
     end
 
-    def init_datasource!
-      adapter = Repository::StationStore.new(FeedParser.new.fetch)
-      Repository::Repo.adapter = adapter
+    def build_adapter!
+      Repository::StationStore.new(FeedParser.new.fetch)
     end
   end
 end

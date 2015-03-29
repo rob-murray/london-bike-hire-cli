@@ -1,6 +1,12 @@
 module LondonBikeHireCli
   module Repository
+    # Specialisation for Bike Stations; delegates all to Repository
+    #
     class StationRepo
+      def initialize(adapter)
+        Repository::Repo.adapter = adapter
+      end
+
       def save(record)
         Repo.save(record)
       end
@@ -22,6 +28,7 @@ module LondonBikeHireCli
       end
 
       private
+
       def object_class
         # TODO fix reflection
         #@object_class ||= self.to_s.match(/^(.+)Repo/)[1].constantize
