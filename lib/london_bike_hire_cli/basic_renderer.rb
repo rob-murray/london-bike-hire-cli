@@ -6,7 +6,7 @@ module LondonBikeHireCli
 
     def render(context)
       output.print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
-      output.print "Feed updated: #{context.time_of_feed}\n"
+      #output.print "Feed updated: #{context.time_of_feed}\n"
 
       context.each do |station|
         render_station(station)

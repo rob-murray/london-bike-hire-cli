@@ -1,6 +1,6 @@
 module LondonBikeHireCli
   class Controller
-    attr_accessor :geocoder, :spatial_service
+    attr_accessor :geocoder
 
     def initialize(repository: nil, renderer: default_renderer)
       @repository = repository
@@ -14,18 +14,19 @@ module LondonBikeHireCli
     end
 
     def find_by_id(id)
-      results = repository.find_by_id(id.to_i)
-      renderer.render(results)
+      results = repository.find(id.to_i)
+      renderer.render(Array(results))
 
-    rescue StationRepository::StationNotFound => e
+    rescue StationNotFound => e
       renderer.render_error(query: "find_by_id: #{id}", error: e)
     end
 
     def where(params: {})
-      results = repository.find_by_name(params[:name])
+      by_name_query = Queries::StationsByName.new(params[:name])
+      results = repository.query(by_name_query)
       renderer.render(results)
 
-    rescue StationRepository::StationNotFound => e
+    rescue StationNotFound => e
       renderer.render_error(query: "where: #{params}", error: e)
     end
 
@@ -42,13 +43,13 @@ module LondonBikeHireCli
 
       if search_term = params[:id]
         begin
-          stations = repository.find_by_id(search_term.to_i)
-        rescue StationRepository::StationNotFound => e
+          station = repository.find(search_term.to_i)
+        rescue StationNotFound => e
           renderer.render_error(query: "where: #{params}", error: e)
           return
         end
 
-        geocoded_point = stations.first.position
+        geocoded_point = station.position
       end
 
       unless geocoded_point
@@ -57,10 +58,8 @@ module LondonBikeHireCli
         return
       end
 
-      init_spatial_service(repository.all)
-      nearest_ids = spatial_service.nearest(geocoded_point)
-
-      results = repository.find_by_id(*nearest_ids)
+      near_query = Queries::StationsNear.new(geocoded_point[:lat], geocoded_point[:long], DEFAULT_SEARCH_LIMIT)
+      results = repository.query(near_query)
       renderer.render(results)
     end
 
@@ -70,13 +69,6 @@ module LondonBikeHireCli
 
     def default_renderer
       BasicRenderer.new
-    end
-
-    def init_spatial_service(all_stations)
-      @spatial_service ||= begin
-        datasource = StationAdapter.new(all_stations).to_triples
-        SpatialSearch.new(datasource)
-      end
     end
   end
 end

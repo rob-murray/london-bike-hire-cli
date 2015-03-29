@@ -17,16 +17,13 @@ module LondonBikeHireCli
     attr_writer :stations
 
     def parse_xml(xml_doc)
-      stations = {}
+      stations = []
 
       xml_doc.root.elements.each do |node|
-        station = parse_station(node)
-        station_id = station[:id].to_i
-        stations[station_id] = Station.new(station) unless station_id == 0
+        stations << parse_station(node)
       end
-      stations[:last_update] = parse_feed_time(xml_doc)
 
-      stations
+      QueryResponse.new(last_update: parse_feed_time(xml_doc), results: stations)
     end
 
     def parse_feed_time(xml_doc)
@@ -66,11 +63,11 @@ module LondonBikeHireCli
         station[:temporary] = parse_bool(node.text) if node.node_name.eql? 'temporary'
       end
 
-      station
+      Station.new(station)
     end
 
     def parse_bool(value)
-      value == 'true'
+      !!(value == 'true')
     end
   end
 end
