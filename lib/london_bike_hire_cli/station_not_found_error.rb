@@ -1,3 +1,3 @@
 module LondonBikeHireCli
-  class StationNotFound < StandardError; end
+  class StationNotFoundError < StandardError; end
 end

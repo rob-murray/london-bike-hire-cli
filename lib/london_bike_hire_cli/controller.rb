@@ -17,7 +17,7 @@ module LondonBikeHireCli
       results = repository.find(id.to_i)
       renderer.render(Array(results))
 
-    rescue StationNotFound => e
+    rescue StationNotFoundError => e
       renderer.render_error(query: "find_by_id: #{id}", error: e)
     end
 
@@ -26,7 +26,7 @@ module LondonBikeHireCli
       results = repository.query(by_name_query)
       renderer.render(results)
 
-    rescue StationNotFound => e
+    rescue StationNotFoundError => e
       renderer.render_error(query: "where: #{params}", error: e)
     end
 
@@ -39,12 +39,10 @@ module LondonBikeHireCli
 
       if search_term = params[:search_term]
         geocoded_point = geocoder.geocode(search_term)
-      end
-
-      if search_term = params[:id]
+      elsif search_term = params[:id]
         begin
           station = repository.find(search_term.to_i)
-        rescue StationNotFound => e
+        rescue StationNotFoundError => e
           renderer.render_error(query: "where: #{params}", error: e)
           return
         end

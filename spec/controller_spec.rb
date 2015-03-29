@@ -30,7 +30,7 @@ RSpec.describe LondonBikeHireCli::Controller do
 
     context 'given repository raising not found error' do
       it 'does not raise_error' do
-        allow(repository).to receive(:find).and_raise(LondonBikeHireCli::StationNotFound)
+        allow(repository).to receive(:find).and_raise(LondonBikeHireCli::StationNotFoundError)
 
         expect do
           subject.find_by_id(1)
@@ -41,8 +41,10 @@ RSpec.describe LondonBikeHireCli::Controller do
 
   describe '#where' do
     context 'given a request with name parameter' do
-      it 'should request stations from repository' do
-        expect(repository).to receive(:query).with(instance_of(LondonBikeHireCli::Queries::StationsByName))
+      it 'should request stations from repository with query' do
+        expect(repository).to receive(:query) do |arg|
+          expect(arg.search_term).to eq('kings')
+        end
 
         subject.where(params: { name: 'kings' })
       end
@@ -50,7 +52,7 @@ RSpec.describe LondonBikeHireCli::Controller do
       context 'given repository raising not found error' do
         it 'does not raise_error' do
           # TODO: change this
-          allow(repository).to receive(:query).and_raise(LondonBikeHireCli::StationNotFound)
+          allow(repository).to receive(:query).and_raise(LondonBikeHireCli::StationNotFoundError)
 
           expect do
             subject.where(params: { name: 'kings' })
@@ -93,8 +95,12 @@ RSpec.describe LondonBikeHireCli::Controller do
         subject.nearest(params: { search_term: search_term })
       end
 
-      it 'retreives stations matched by search' do
-        expect(repository).to receive(:query).with(instance_of(LondonBikeHireCli::Queries::StationsNear))
+      it 'requests stations from repository by query' do
+        expect(repository).to receive(:query) do |arg|
+          expect(arg.lat).to eq(geocoded_point[:lat])
+          expect(arg.long).to eq(geocoded_point[:long])
+          expect(arg.limit).to eq(LondonBikeHireCli::DEFAULT_SEARCH_LIMIT)
+        end
 
         subject.nearest(params: { search_term: search_term })
       end
@@ -113,8 +119,9 @@ RSpec.describe LondonBikeHireCli::Controller do
 
     context 'given a request with id parameter' do
       let(:search_id) { 1 }
+      let(:station) { double('Station', id: 1, position: geocoded_point) }
       before do
-        allow(repository).to receive(:find).and_return(double.as_null_object)
+        allow(repository).to receive(:find).and_return(station)
         allow(repository).to receive(:query)
 
         subject.geocoder = geocoder
@@ -126,8 +133,12 @@ RSpec.describe LondonBikeHireCli::Controller do
         subject.nearest(params: { id: search_id })
       end
 
-      it 'retreives stations matched by search' do
-        expect(repository).to receive(:query).with(instance_of(LondonBikeHireCli::Queries::StationsNear))
+      it 'requests stations from repository by query' do
+        expect(repository).to receive(:query) do |arg|
+          expect(arg.lat).to eq(geocoded_point[:lat])
+          expect(arg.long).to eq(geocoded_point[:long])
+          expect(arg.limit).to eq(LondonBikeHireCli::DEFAULT_SEARCH_LIMIT)
+        end
 
         subject.nearest(params: { id: search_id })
       end
