@@ -6,17 +6,15 @@ module LondonBikeHireCli
 
     def_delegators :results, :[], :each, :map, :first, :size
 
+    attr_reader :last_update
+
     def initialize(last_update: Time.now, results: [])
       @last_update = last_update
       @results = results
     end
 
-    def time_of_feed
-      last_update.strftime('%Y-%m-%d %H:%M:%S')
-    end
-
     private
 
-    attr_reader :results, :last_update
+    attr_reader :results
   end
 end
