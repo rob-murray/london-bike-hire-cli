@@ -8,35 +8,33 @@ RSpec.describe LondonBikeHireCli::FeedParser do
       expect(subject.fetch).not_to be_nil
     end
 
+    it 'returns query response' do
+      expect(subject.fetch).to be_instance_of(LondonBikeHireCli::QueryResponse)
+    end
+
     it 'parses expected number of Bike Stations' do
       results = subject.fetch
-      expect(results.keys.count).to eq(747 + 1)
+      expect(results.size).to eq(747)
     end
 
-    it 'has the feed update time' do
+    it 'has returns array of Stations' do
       results = subject.fetch
-      expect(results).to have_key(:last_update)
-    end
 
-    it 'has integer for all Stations' do
-      results = subject.fetch
-      results.delete(:last_update)
-
-      expect(results.keys).to all(be_an(Integer))
+      # TODO fix the enumerator thing
+      expect(results.map {|s| s}).to all(be_an(LondonBikeHireCli::Station))
     end
 
     it 'has integer for all Station IDs' do
       results = subject.fetch
-      results.delete(:last_update)
-      stations = results.values
-      ids = stations.map(&:id)
+      ids = results.map(&:id)
 
       expect(ids).to all(be_an(Integer))
     end
 
     it 'has parsed date time from feed update time' do
       results = subject.fetch
-      expect(results[:last_update]).to eq(Time.new(2014, 8, 10, 10, 56, 01, '+01:00'))
+      expected_time = Time.new(2014, 8, 10, 10, 56, 01, '+01:00').strftime('%Y-%m-%d %H:%M:%S')
+      expect(results.time_of_feed).to eq(expected_time)
     end
   end
 end
