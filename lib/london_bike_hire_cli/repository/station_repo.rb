@@ -3,10 +3,6 @@ module LondonBikeHireCli
     # Specialisation for Bike Stations; delegates all to Repository
     #
     class StationRepo
-      def initialize(adapter)
-        Repository::Repo.adapter = adapter
-      end
-
       def save(record)
         Repo.save(record)
       end

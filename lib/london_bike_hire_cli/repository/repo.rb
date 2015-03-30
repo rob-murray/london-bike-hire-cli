@@ -7,7 +7,7 @@ module LondonBikeHireCli
         @adapter
       end
 
-      def self.adapter=(adapter)
+      def self.register(adapter)
         @adapter = adapter
       end
 

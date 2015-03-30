@@ -3,7 +3,10 @@ require 'spec_helper'
 RSpec.describe LondonBikeHireCli::Repository::StationRepo do
   let(:test_datasource) { TestDatasource.new }
   let(:adapter) { LondonBikeHireCli::Repository::StationStore.new(test_datasource.fetch) }
-  subject { described_class.new(adapter) }
+  before do
+    LondonBikeHireCli::Repository::Repo.register(adapter)
+  end
+  subject { described_class.new }
 
   describe '#all' do
     context 'given feed_parser returns dataset' do
