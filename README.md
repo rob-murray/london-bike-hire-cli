@@ -12,17 +12,19 @@
 
 ### Description
 
-This gem provides a command line interface to find information about London's Bike Hire stations, it allows you to find stations by name or their ID and retrieve information about the status of a station.
+This gem provides a command line interface to find information about London's Bike Hire stations, it allows you to find stations by name or their ID or a location and retrieve information about the status of a station.
+
+I got fed up digging through [the official map](https://web.barclayscyclehire.tfl.gov.uk/maps) to see which bike stations were free - everyone knows the command line is way more efficient.
 
 ![Boris](boris-on-a-bike_med.jpg?raw=true "Boris Johnson on a bike")
 
 Here's the spec for **London Bike Hire CLI**:
 
-* Find all stations
-* Find nearest station
-* Find by ID
-* Find by by name
-* Display status of stations
+* [Find all stations](#list-all-bike-stations)
+* [Find nearest station](#find-the-nearest-bike-station)
+* [Find by ID](#find-a-bike-station-by-id)
+* [Find by by name](#find-all-bike-stations-by-name)
+* [Display status of stations](#results)
 
 
 ### Getting started
@@ -38,7 +40,7 @@ $ gem install london-bike-hire-cli
 
 You can run **london-bike-hire-cli** from the command line with just the `lbh` command.
 
-##### Command line help
+#### Command line help
 
 For a list of arguments just use the `-h` switch.
 
@@ -46,7 +48,7 @@ For a list of arguments just use the `-h` switch.
 $ lbh -h
 ````
 
-##### List all bike stations
+#### List all bike stations
 
 List all however-many-hundred bike stations there are. With pagination.
 
@@ -54,7 +56,7 @@ List all however-many-hundred bike stations there are. With pagination.
 $ lbh all
 ````
 
-##### Find the nearest bike station
+#### Find the nearest bike station
 
 Find a the nearest bike station to the specified type below. This will return five stations.
 
@@ -76,7 +78,7 @@ $ lbh near --id 123
 
 **Note:** Don't forget to wrap search term in quotes if it contains spaces.
 
-##### Show status of a bike station by id
+#### Find a bike station by id
 
 Find a Bike station by it's Tfl station ID. This will return one station.
 
@@ -85,7 +87,7 @@ $ lbh find --id {id}
 $ lbh find --id 439
 ````
 
-##### Find all bike stations by name
+#### Find all bike stations by name
 
 Search all bike stations' name attribute for the search value. This will return zero or more results.
 
@@ -94,7 +96,7 @@ $ lbh where --{attribute} {search_value}
 $ lbh where --name kings
 ````
 
-##### Results
+#### Results
 
 ```bash
 $ lbh find --id 439
