@@ -21,9 +21,9 @@ I got fed up digging through [the official map](https://web.barclayscyclehire.tf
 Here's the spec for **London Bike Hire CLI**:
 
 * [Find all stations](#list-all-bike-stations)
-* [Find nearest station](#find-the-nearest-bike-station)
 * [Find by ID](#find-a-bike-station-by-id)
-* [Find by by name](#find-all-bike-stations-by-name)
+* [Find nearest station](#find-the-nearest-bike-station)
+* [Find by name](#find-all-bike-stations-by-name)
 * [Display status of stations](#results)
 
 
