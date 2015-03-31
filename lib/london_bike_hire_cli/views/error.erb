@@ -1,0 +1,5 @@
+<%= colorize('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', :yellow) %>
+Ooops, something went wrong with the query.
+The query <%= colorize(context[:query].inspect, :red) %>
+resulted in error: <%= colorize(context[:error], :red) %>
+<% colorize('Try again?', :cyan) %>

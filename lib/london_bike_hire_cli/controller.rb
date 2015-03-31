@@ -14,6 +14,7 @@ module LondonBikeHireCli
     end
 
     def find_by_id(id)
+      raise StationNotFoundError.new('foo')
       results = repository.find(id.to_i)
       renderer.render(Array(results))
 
