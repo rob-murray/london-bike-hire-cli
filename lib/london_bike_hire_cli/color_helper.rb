@@ -2,7 +2,7 @@ module LondonBikeHireCli
   module ColorHelper
     def colorize(text, color_name = :default)
       colour_code = color_code(color_name)
-      "\e[#{color_code}m#{text}\e[0m"
+      "\e[#{colour_code}m#{text}\e[0m"
     end
 
     private
