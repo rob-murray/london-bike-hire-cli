@@ -3,7 +3,7 @@ require_relative 'color_helper'
 
 module LondonBikeHireCli
   class BasicRenderer
-    include LondonBikeHireCli::ColorHelper
+    include ColorHelper
 
     def initialize(output = STDOUT)
       @output = output
@@ -11,30 +11,21 @@ module LondonBikeHireCli
 
     attr_reader :context
 
-    def render(context)
+    def render(template_name, context)
       @context = context
-      output.print build(station_list_template).result(binding).gsub(/^\s+/, "")
-    end
-
-    def render_error(context)
-      @context = context
-      output.print build(error_view).result(binding).gsub(/^\s+/, "")
+      output.print render_template(find_template(template_name))
     end
 
     private
 
     attr_reader :output
 
-    def build(template)
-      ERB.new(template)
+    def render_template(template)
+      ERB.new(template).result(binding).gsub(/^\s+/, "")
     end
 
-    def station_list_template
-      File.read('lib/london_bike_hire_cli/views/stations.erb')
-    end
-
-    def error_view
-      File.read('lib/london_bike_hire_cli/views/error.erb')
+    def find_template(template_name)
+      File.read("lib/london_bike_hire_cli/views/#{template_name}.erb")
     end
   end
 end
