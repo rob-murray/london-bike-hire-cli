@@ -3,36 +3,36 @@ module LondonBikeHireCli
     # Generic Repository delegating to adapter
     #
     module Repo
-      def self.adapter
-        @adapter
-      end
+      class << self
+        attr_reader :adapter
 
-      def self.register(adapter)
-        @adapter = adapter
-      end
+        def register(adapter)
+          @adapter = adapter
+        end
 
-      def self.find(klass, id)
-        adapter.find klass, id
-      end
+        def find(klass, id)
+          adapter.find klass, id
+        end
 
-      def self.all(klass)
-        adapter.all klass
-      end
+        def all(klass)
+          adapter.all klass
+        end
 
-      def self.create(model)
-        adapter.create(model)
-      end
+        def create(model)
+          adapter.create(model)
+        end
 
-      def self.update(model)
-        adapter.update(model)
-      end
+        def update(model)
+          adapter.update(model)
+        end
 
-      def self.delete(model)
-        adapter.delete model
-      end
+        def delete(model)
+          adapter.delete model
+        end
 
-      def self.query(klass, selector)
-        adapter.query(klass, selector)
+        def query(klass, selector)
+          adapter.query(klass, selector)
+        end
       end
     end
   end

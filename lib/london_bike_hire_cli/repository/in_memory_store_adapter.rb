@@ -58,9 +58,9 @@ module LondonBikeHireCli
       # TODO fix
       def underscore(camel_cased_word)
         demod_word = camel_cased_word.to_s.split('::').last
-        demod_word.gsub!(/([A-Z\d]+)([A-Z][a-z])/,'\1_\2')
-        demod_word.gsub!(/([a-z\d])([A-Z])/,'\1_\2')
-        demod_word.tr!("-", "_")
+        demod_word.gsub!(/([A-Z\d]+)([A-Z][a-z])/, '\1_\2')
+        demod_word.gsub!(/([a-z\d])([A-Z])/, '\1_\2')
+        demod_word.tr!('-', '_')
         demod_word.downcase!
         demod_word
       end

@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = LondonBikeHireCli::VERSION
   spec.authors       = ['Rob Murray']
   spec.email         = ['robmurray17@gmail.com']
-  spec.summary       = %q(A command line interface to London's Bike Hire API.)
-  spec.description   = %q(Find information about London's Bike Hire stations from command line interface.)
+  spec.summary       = "A command line interface to London's Bike Hire API."
+  spec.description   = "Find information about London's Bike Hire stations from command line interface."
   spec.homepage      = 'https://github.com/rob-murray/london-bike-hire-cli'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 2.0.0'

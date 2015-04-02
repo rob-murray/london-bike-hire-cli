@@ -1,4 +1,4 @@
-require 'kdtree'
+require "kdtree"
 
 module LondonBikeHireCli
   module Repository
