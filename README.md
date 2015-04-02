@@ -101,7 +101,6 @@ $ lbh where --name kings
 ```bash
 $ lbh find --id 439
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Feed updated: 2015-03-31 20:46:01
 ----- Bike station
 Id: 439
 Name: Killick Street, Kings Cross
@@ -112,6 +111,7 @@ Bikes: 13
 Docks_free: 9
 Docks_total: 22
 Link to map: https://www.google.co.uk/maps/preview/@51.5338,-0.118677,17z
+Updated at: 2015-03-31 20:46:01
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ```
 

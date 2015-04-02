@@ -1,5 +1,4 @@
 <%= colorize('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', :yellow) %>
-Feed updated: <%= colorize(context.first.display_feed_time, :red) %>
 <% context.each do |station| %>
 ----- <%= colorize('Bike station', :green) %>
 <% station.each_pair.each do |attr_name, attr_value| %>
@@ -7,5 +6,6 @@ Feed updated: <%= colorize(context.first.display_feed_time, :red) %>
 <%= attr_name.capitalize %>: <%= colorize(attr_value, :cyan) %>
 <% end %>
 Link to map: <%= colorize(station.map_link, :pink) %>
+Updated at: <%= colorize(station.display_updated_at, :red) %>
 <% end %>
 <%= colorize('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', :yellow) %>
