@@ -1,3 +1,7 @@
+module LondonBikeHireCli
+  DEFAULT_SEARCH_LIMIT = 5
+end
+
 require_relative 'london_bike_hire_cli/application'
 require_relative 'london_bike_hire_cli/basic_renderer'
 require_relative 'london_bike_hire_cli/controller'
@@ -14,7 +18,3 @@ require_relative 'london_bike_hire_cli/queries/stations_by_name'
 require_relative 'london_bike_hire_cli/queries/stations_near'
 require_relative 'london_bike_hire_cli/station_not_found_error'
 require_relative 'london_bike_hire_cli/version'
-
-module LondonBikeHireCli
-  DEFAULT_SEARCH_LIMIT = 5
-end
