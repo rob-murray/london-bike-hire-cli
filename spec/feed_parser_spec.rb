@@ -21,7 +21,7 @@ RSpec.describe LondonBikeHireCli::FeedParser do
       results = subject.fetch
 
       # TODO fix the enumerator thing
-      expect(results.map {|s| s}).to all(be_an(LondonBikeHireCli::Station))
+      expect(results.map { |s| s }).to all(be_an(LondonBikeHireCli::Station))
     end
 
     it 'has integer for all Station IDs' do

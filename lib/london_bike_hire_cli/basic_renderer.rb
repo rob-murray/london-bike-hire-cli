@@ -21,7 +21,7 @@ module LondonBikeHireCli
     attr_reader :output
 
     def render_template(template)
-      ERB.new(template).result(binding).gsub(/^\s+/, "")
+      ERB.new(template).result(binding).gsub(/^\s+/, '')
     end
 
     def find_template(template_name)

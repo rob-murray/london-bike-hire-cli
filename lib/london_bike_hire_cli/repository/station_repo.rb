@@ -27,7 +27,7 @@ module LondonBikeHireCli
 
       def object_class
         # TODO fix reflection
-        #@object_class ||= self.to_s.match(/^(.+)Repo/)[1].constantize
+        # @object_class ||= self.to_s.match(/^(.+)Repo/)[1].constantize
         Station
       end
     end
