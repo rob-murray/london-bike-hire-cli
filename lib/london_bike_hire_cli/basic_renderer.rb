@@ -25,7 +25,11 @@ module LondonBikeHireCli
     end
 
     def find_template(template_name)
-      File.read("lib/london_bike_hire_cli/views/#{template_name}.erb")
+      File.read("#{template_dir}/#{template_name}.erb")
+    end
+
+    def template_dir
+      File.expand_path('../views/', __FILE__)
     end
   end
 end
