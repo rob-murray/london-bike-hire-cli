@@ -26,7 +26,7 @@ Here's the spec for **London Bike Hire CLI**:
 * [Find by name](#find-all-bike-stations-by-name)
 * [Display status of stations](#results)
 
-![Boris](bike-cli.gif?raw=true "Boris Johnson on a bike")
+![Demo commands](bike-cli.gif?raw=true "Some London Bike Hire CLI example commands in terminal")
 
 ### Getting started
 
