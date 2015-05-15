@@ -26,6 +26,7 @@ Here's the spec for **London Bike Hire CLI**:
 * [Find by name](#find-all-bike-stations-by-name)
 * [Display status of stations](#results)
 
+![Boris](bike-cli.gif?raw=true "Boris Johnson on a bike")
 
 ### Getting started
 
