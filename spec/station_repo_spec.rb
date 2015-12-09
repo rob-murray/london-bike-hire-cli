@@ -36,7 +36,7 @@ RSpec.describe LondonBikeHireCli::Repository::StationRepo do
         it 'should raise error' do
           expect do
             subject.find(99)
-          end.to raise_error
+          end.to raise_error(KeyError)
         end
       end
 
