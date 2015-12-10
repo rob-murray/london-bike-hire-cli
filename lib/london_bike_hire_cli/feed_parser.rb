@@ -3,7 +3,7 @@ require 'open-uri'
 
 module LondonBikeHireCli
   class FeedParser
-    TFL_FEED_URL = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml'.freeze
+    TFL_FEED_URL = 'https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml'.freeze
 
     def fetch
       params = { 'User-Agent' => 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0' }
@@ -17,11 +17,10 @@ module LondonBikeHireCli
     attr_reader :feed_time
 
     def parse_xml(xml_doc)
-      stations = []
       parse_feed_time(xml_doc)
 
-      xml_doc.root.elements.each do |node|
-        stations << parse_station(node)
+      stations = xml_doc.root.elements.inject([]) do |collection, node|
+        collection << parse_station(node)
       end
 
       QueryResponse.new(last_update: feed_time, results: stations)

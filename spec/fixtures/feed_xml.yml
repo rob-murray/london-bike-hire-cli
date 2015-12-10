@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml
+    uri: https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml
     body:
       encoding: US-ASCII
       string: ''
@@ -817,6 +817,6 @@ http_interactions:
         Park, Parsons Green</name><terminalName>300098</terminalName><lat>51.470131</lat><long>-0.20464</long><installed>true</installed><locked>false</locked><installDate>1396265880000</installDate><removalDate></removalDate><temporary>false</temporary><nbBikes>15</nbBikes><nbEmptyDocks>5</nbEmptyDocks><nbDocks>20</nbDocks></station><station><id>775</id><name>Little
         Brook Green, Brook Green</name><terminalName>300101</terminalName><lat>51.496664</lat><long>-0.223868</long><installed>true</installed><locked>false</locked><installDate>1396270320000</installDate><removalDate></removalDate><temporary>false</temporary><nbBikes>22</nbBikes><nbEmptyDocks>10</nbEmptyDocks><nbDocks>32</nbDocks></station><station><id>777</id><name>Limburg
         Road, Clapham Common</name><terminalName>300100</terminalName><lat>51.4619230679</lat><long>-0.165297856693</long><installed>true</installed><locked>false</locked><installDate></installDate><removalDate></removalDate><temporary>false</temporary><nbBikes>19</nbBikes><nbEmptyDocks>1</nbEmptyDocks><nbDocks>21</nbDocks></station></stations>\r\n"
-    http_version: 
+    http_version:
   recorded_at: Sun, 10 Aug 2014 09:56:57 GMT
 recorded_with: VCR 2.9.2
