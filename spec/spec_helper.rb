@@ -1,8 +1,4 @@
-require 'codeclimate-test-reporter'
-require 'coveralls'
 require 'pry-byebug'
-CodeClimate::TestReporter.start
-Coveralls.wear!
 
 require File.join(File.dirname(__FILE__), '..', '/lib/', 'london_bike_hire_cli')
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }

@@ -2,13 +2,7 @@
 
 #### A simple command line interface to London's Bike Hire API.
 
-[![Build Status](https://travis-ci.org/rob-murray/london-bike-hire-cli.svg?branch=master)](https://travis-ci.org/rob-murray/london-bike-hire-cli)
-[![Code Climate](https://codeclimate.com/github/rob-murray/london-bike-hire-cli.png)](https://codeclimate.com/github/rob-murray/london-bike-hire-cli)
-[![Coverage Status](https://coveralls.io/repos/rob-murray/london-bike-hire-cli/badge.svg?branch=master)](https://coveralls.io/r/rob-murray/london-bike-hire-cli?branch=master)
-[![Dependency Status](https://gemnasium.com/rob-murray/ferver.svg)](https://gemnasium.com/rob-murray/london-bike-hire-cli)
 [![Gem Version](https://badge.fury.io/rb/london-bike-hire-cli.svg)](http://badge.fury.io/rb/london-bike-hire-cli)
-[![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/london-bike-hire-cli.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/london-bike-hire-cli)
-
 
 ### Description
 
