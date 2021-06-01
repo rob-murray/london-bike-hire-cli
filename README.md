@@ -10,7 +10,7 @@ This gem provides a command line interface to find information about London's Bi
 
 I got fed up digging through [the official map](https://web.barclayscyclehire.tfl.gov.uk/maps) to see which bike stations were free - everyone knows the command line is way more efficient.
 
-![Boris](boris-on-a-bike_med.jpg?raw=true "Boris Johnson on a bike")
+![Boris](media/boris-on-a-bike_med.jpg?raw=true "Boris Johnson on a bike")
 
 Here's the spec for **London Bike Hire CLI**:
 
@@ -20,7 +20,7 @@ Here's the spec for **London Bike Hire CLI**:
 * [Find by name](#find-all-bike-stations-by-name)
 * [Display status of stations](#results)
 
-![Demo commands](bike-cli.gif?raw=true "Some London Bike Hire CLI example commands in terminal")
+![Demo commands](media/bike-cli.gif?raw=true "Some London Bike Hire CLI example commands in terminal")
 
 ### Getting started
 
