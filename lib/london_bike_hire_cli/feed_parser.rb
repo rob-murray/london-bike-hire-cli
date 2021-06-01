@@ -6,8 +6,9 @@ module LondonBikeHireCli
     TFL_FEED_URL = 'https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml'.freeze
 
     def fetch
-      params = { 'User-Agent' => 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0' }
-      stations_doc = Nokogiri::XML(open(TFL_FEED_URL, params))
+      stations_doc = Nokogiri::XML(
+        URI.parse(TFL_FEED_URL).open('User-Agent' => 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0')
+      )
 
       parse_xml(stations_doc)
     end
