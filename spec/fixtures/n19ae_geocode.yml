@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?address=n19ae&language=en&sensor=false
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=n1%209ae
     body:
       encoding: US-ASCII
       string: ''
@@ -18,97 +18,25 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 01 Jun 2021 13:21:15 GMT
       Content-Type:
       - application/json; charset=UTF-8
-      Date:
-      - Sat, 23 Aug 2014 07:31:30 GMT
-      Expires:
-      - Sun, 24 Aug 2014 07:31:30 GMT
-      Cache-Control:
-      - public, max-age=86400
-      Access-Control-Allow-Origin:
-      - "*"
-      Server:
-      - mafe
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Frame-Options:
-      - SAMEORIGIN
-      Alternate-Protocol:
-      - 80:quic
       Transfer-Encoding:
       - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=20
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
     body:
-      encoding: UTF-8
-      string: |
-        {
-           "results" : [
-              {
-                 "address_components" : [
-                    {
-                       "long_name" : "N1 9AE",
-                       "short_name" : "N1 9AE",
-                       "types" : [ "postal_code" ]
-                    },
-                    {
-                       "long_name" : "Kings Cross",
-                       "short_name" : "Kings Cross",
-                       "types" : [ "neighborhood", "political" ]
-                    },
-                    {
-                       "long_name" : "London",
-                       "short_name" : "London",
-                       "types" : [ "locality", "political" ]
-                    },
-                    {
-                       "long_name" : "London",
-                       "short_name" : "London",
-                       "types" : [ "postal_town" ]
-                    },
-                    {
-                       "long_name" : "Greater London",
-                       "short_name" : "Gt Lon",
-                       "types" : [ "administrative_area_level_2", "political" ]
-                    },
-                    {
-                       "long_name" : "United Kingdom",
-                       "short_name" : "GB",
-                       "types" : [ "country", "political" ]
-                    }
-                 ],
-                 "formatted_address" : "Kings Cross, London N1 9AE, UK",
-                 "geometry" : {
-                    "bounds" : {
-                       "northeast" : {
-                          "lat" : 51.5310654,
-                          "lng" : -0.1212172
-                       },
-                       "southwest" : {
-                          "lat" : 51.5308025,
-                          "lng" : -0.1218269
-                       }
-                    },
-                    "location" : {
-                       "lat" : 51.5309584,
-                       "lng" : -0.1215387
-                    },
-                    "location_type" : "APPROXIMATE",
-                    "viewport" : {
-                       "northeast" : {
-                          "lat" : 51.5322829302915,
-                          "lng" : -0.120173069708498
-                       },
-                       "southwest" : {
-                          "lat" : 51.5295849697085,
-                          "lng" : -0.122871030291502
-                       }
-                    }
-                 },
-                 "types" : [ "postal_code" ]
-              }
-           ],
-           "status" : "OK"
-        }
-    http_version: 
-  recorded_at: Sat, 23 Aug 2014 07:31:30 GMT
-recorded_with: VCR 2.9.2
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjI2MDI3NTE0OSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0IiwiYm91bmRpbmdib3giOlsiNTEuMzcwOTgxMTc1NzQ0IiwiNTEuNjkwOTgxMTc1NzQ0IiwiLTAuMjgxODQwNTcxNDg1OTQiLCIwLjAzODE1OTQyODUxNDA2NCJdLCJsYXQiOiI1MS41MzA5ODExNzU3NDM3MiIsImxvbiI6Ii0wLjEyMTg0MDU3MTQ4NTkzNjE5IiwiZGlzcGxheV9uYW1lIjoiUmVnZW50IFF1YXJ0ZXIsIEtpbmcncyBDcm9zcywgTG9uZG9uIEJvcm91Z2ggb2YgSXNsaW5ndG9uLCBMb25kb24sIEdyZWF0ZXIgTG9uZG9uLCBFbmdsYW5kLCBOMSA5QUUsIFVuaXRlZCBLaW5nZG9tIiwiY2xhc3MiOiJwbGFjZSIsInR5cGUiOiJwb3N0Y29kZSIsImltcG9ydGFuY2UiOjAuMzI1LCJhZGRyZXNzIjp7InJldGFpbCI6IlJlZ2VudCBRdWFydGVyIiwic3VidXJiIjoiS2luZydzIENyb3NzIiwiY2l0eV9kaXN0cmljdCI6IkxvbmRvbiBCb3JvdWdoIG9mIElzbGluZ3RvbiIsImNpdHkiOiJMb25kb24iLCJzdGF0ZV9kaXN0cmljdCI6IkdyZWF0ZXIgTG9uZG9uIiwic3RhdGUiOiJFbmdsYW5kIiwicG9zdGNvZGUiOiJOMSA5QUUiLCJjb3VudHJ5IjoiVW5pdGVkIEtpbmdkb20iLCJjb3VudHJ5X2NvZGUiOiJnYiJ9fV0=
+  recorded_at: Tue, 01 Jun 2021 13:21:15 GMT
+recorded_with: VCR 6.0.0

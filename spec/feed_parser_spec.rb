@@ -14,7 +14,7 @@ RSpec.describe LondonBikeHireCli::FeedParser do
 
     it 'parses expected number of Bike Stations' do
       results = subject.fetch
-      expect(results.size).to eq(747)
+      expect(results.size).to eq(789)
     end
 
     it 'has returns array of Stations' do
@@ -33,7 +33,7 @@ RSpec.describe LondonBikeHireCli::FeedParser do
 
     it 'has parsed date time from feed update time' do
       results = subject.fetch
-      expected_time = Time.new(2014, 8, 10, 10, 56, 01, '+01:00')
+      expected_time = Time.new(2021, 06, 1, 13, 50, 0, '+01:00')
       expect(results.last_update).to eq(expected_time)
     end
   end

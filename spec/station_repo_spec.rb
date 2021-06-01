@@ -116,7 +116,7 @@ RSpec.describe LondonBikeHireCli::Repository::StationRepo do
       it 'should return expected result' do
         result = subject.find(777)
 
-        expect(result.name).to eq('Limburg Road, Clapham Common')
+        expect(result.name).to eq('Limburg Road, Clapham Junction')
       end
     end
 
@@ -126,14 +126,14 @@ RSpec.describe LondonBikeHireCli::Repository::StationRepo do
       it 'should return expected number of results' do
         results = subject.query(query)
 
-        expect(results.size).to eq(3)
+        expect(results.size).to eq(4)
       end
 
       it 'should return expected result' do
         results = subject.query(query)
         actual_ids = results.map(&:id)
 
-        expect(actual_ids).to include(283, 439, 594)
+        expect(actual_ids).to include(283, 594, 799, 836)
       end
     end
 
@@ -141,7 +141,7 @@ RSpec.describe LondonBikeHireCli::Repository::StationRepo do
       it 'should return expected number of results' do
         results = subject.all
 
-        expect(results.size).to eq(747)
+        expect(results.size).to eq(789)
       end
     end
   end
